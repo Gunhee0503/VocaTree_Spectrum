@@ -1,0 +1,542 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
+<meta name="theme-color" content="#b8893b">
+<title>보카트리 Spectrum</title>
+<link rel="manifest" href="./manifest.json">
+<link rel="apple-touch-icon" href="./icons/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="./icons/favicon-32.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Spectrum">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,700;9..144,900&family=Gowun+Batang:wght@400;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+<style>
+  /* ===== A안: 프리즘 보조색 ===== */
+  :root{
+    --ink:#241c14; --paper:#f4ece0; --paper2:#ece0cd;
+    --line:#c8b89c; --gold:#b8893b; --root:#2a2018;
+    /* Spectrum 신규: P 갈래(라틴계) / F 갈래(게르만계) */
+    --prism-p:#7a5a8c;        /* 보랏빛 — Pater 쪽 */
+    --prism-p-soft:rgba(122,90,140,.10);
+    --prism-p-line:rgba(122,90,140,.45);
+    --prism-f:#3a6b7c;        /* 푸른빛 — Father 쪽 */
+    --prism-f-soft:rgba(58,107,124,.10);
+    --prism-f-line:rgba(58,107,124,.45);
+  }
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+  html,body{margin:0;padding:0;height:100%;overflow-x:hidden}
+  body{
+    font-family:'Gowun Batang',serif;background:var(--paper);color:var(--ink);
+    font-size:15px;line-height:1.7;
+    padding:env(safe-area-inset-top) env(safe-area-inset-right)
+            env(safe-area-inset-bottom) env(safe-area-inset-left);
+  }
+  #app{max-width:480px;margin:0 auto;min-height:100vh;
+    background:var(--paper);position:relative}
+
+  /* ===== Intro 온보딩 ===== */
+  #s-intro{display:flex;flex-direction:column;background:var(--paper);
+    padding:14px 20px 24px;min-height:100vh}
+  .intro-top{display:flex;align-items:center;justify-content:space-between;
+    margin-bottom:14px;min-height:32px}
+  .intro-dots{display:flex;gap:7px}
+  .intro-dots .dot{width:8px;height:8px;border-radius:50%;background:var(--line);
+    transition:background .25s, transform .25s}
+  .intro-dots .dot.active{background:var(--gold);transform:scale(1.3)}
+  .intro-skip{background:none;border:none;font-family:'Space Mono',monospace;
+    font-size:12px;color:#7a6a52;cursor:pointer;letter-spacing:1px;padding:6px 4px}
+  .intro-skip:active{color:var(--gold)}
+  .intro-brand{font-family:'Space Mono',monospace;font-size:10px;
+    letter-spacing:2px;color:var(--gold);font-weight:700;text-align:center;
+    margin-bottom:4px;text-transform:uppercase}
+  .intro-slides{flex:1;display:flex;flex-direction:column;justify-content:flex-start;
+    min-height:0;overflow-y:auto;padding-top:4px}
+  .intro-slide{display:none;animation:slideIn .4s ease}
+  .intro-slide.on{display:block}
+  @keyframes slideIn{from{opacity:0;transform:translateX(20px)}
+    to{opacity:1;transform:translateX(0)}}
+
+  .intro-illust{background:var(--paper2);border:1px solid var(--line);
+    border-radius:12px;padding:20px 16px;margin-bottom:22px}
+
+  .intro-tag{font-family:'Space Mono',monospace;font-size:11px;
+    letter-spacing:2px;color:var(--gold);font-weight:700;margin-bottom:10px}
+  .intro-h{font-family:'Fraunces',serif;font-weight:900;font-size:25px;
+    line-height:1.3;color:var(--ink);margin-bottom:16px;letter-spacing:-.5px}
+  .intro-p{font-family:'Gowun Batang',serif;font-size:14px;line-height:1.85;
+    color:#5c4e3c}
+  .intro-p b{color:var(--ink);font-weight:700}
+  .intro-em{display:inline-block;margin-top:10px;padding:2px 0;
+    border-bottom:2px solid var(--gold);font-weight:700;color:var(--ink)}
+
+  /* ===== 슬라이드 1: 한국어/영어 이중 어휘 도식 ===== */
+  .duo-table{width:100%;border-collapse:separate;border-spacing:0;
+    font-family:'Gowun Batang',serif}
+  .duo-table th{font-family:'Space Mono',monospace;font-size:10px;
+    letter-spacing:1.5px;color:#7a6a52;font-weight:700;padding:6px 8px;
+    text-transform:uppercase;text-align:center;border-bottom:1px solid var(--line)}
+  .duo-table td{padding:10px 8px;text-align:center;vertical-align:middle;
+    border-bottom:1px dashed var(--line)}
+  .duo-table tr:last-child td{border-bottom:none}
+  .duo-native{font-weight:700;color:var(--ink);font-size:15px}
+  .duo-native-sub{font-family:'Space Mono',monospace;font-size:10px;
+    color:#7a6a52;letter-spacing:.3px;margin-top:2px}
+  .duo-arrow{color:var(--gold);font-weight:700;font-size:14px}
+  .duo-sino{font-weight:700;color:var(--ink);font-size:15px}
+  .duo-sino .hanja{font-size:11px;color:#7a6a52;font-weight:400;margin-left:3px}
+  .duo-en-f{font-family:'Fraunces',serif;font-weight:900;color:var(--prism-f);font-size:16px}
+  .duo-en-p{font-family:'Fraunces',serif;font-weight:900;color:var(--prism-p);font-size:16px}
+
+  .ko-en-divider{margin:14px 0 10px;display:flex;align-items:center;gap:10px}
+  .ko-en-divider::before,.ko-en-divider::after{content:'';flex:1;height:1px;background:var(--line)}
+  .ko-en-divider span{font-family:'Space Mono',monospace;font-size:10px;
+    letter-spacing:2px;color:#7a6a52}
+
+  .pf-question{margin-top:16px;text-align:center;padding:12px;
+    background:rgba(184,137,59,.08);border-radius:8px;
+    border-left:3px solid var(--gold)}
+  .pf-question b{font-family:'Fraunces',serif;font-weight:900;font-size:16px;
+    color:var(--ink)}
+  .pf-question .pf-tag{display:inline-block;font-family:'Space Mono',monospace;
+    font-size:10px;letter-spacing:1.5px;color:var(--gold);font-weight:700;
+    margin-bottom:6px}
+
+  /* ===== 슬라이드 2: 자매 언어 갈래 도식 ===== */
+  .tree-illust{padding:18px 12px 14px}
+  .tree-svg{width:100%;max-width:340px;display:block;margin:0 auto}
+  .tree-caption{text-align:center;font-family:'Space Mono',monospace;
+    font-size:10px;color:#7a6a52;letter-spacing:.5px;margin-top:8px;line-height:1.5}
+
+  .rule-box{margin-top:14px;padding:12px 14px;background:var(--paper);
+    border:1px solid var(--line);border-radius:8px;display:flex;
+    align-items:center;justify-content:center;gap:12px;flex-wrap:wrap}
+  .rule-box .rule-p{font-family:'Fraunces',serif;font-weight:900;font-size:22px;
+    color:var(--prism-p);padding:4px 10px;background:var(--prism-p-soft);
+    border-radius:6px;border:1px solid var(--prism-p-line)}
+  .rule-box .rule-arrow{font-family:'Space Mono',monospace;font-weight:700;
+    color:var(--gold);font-size:14px}
+  .rule-box .rule-f{font-family:'Fraunces',serif;font-weight:900;font-size:22px;
+    color:var(--prism-f);padding:4px 10px;background:var(--prism-f-soft);
+    border-radius:6px;border:1px solid var(--prism-f-line)}
+  .rule-box .rule-label{flex:1 1 100%;text-align:center;font-family:'Space Mono',monospace;
+    font-size:10px;color:#7a6a52;letter-spacing:1px;margin-top:4px}
+
+  /* ===== 슬라이드 3: 분광 도식 ===== */
+  .prism-illust{padding:22px 12px 16px}
+  .prism-svg{width:100%;max-width:340px;display:block;margin:0 auto}
+
+  .family-pair{margin-top:14px;display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  .family-col{padding:12px 10px;border-radius:8px;border:1.5px solid}
+  .family-col.f-col{border-color:var(--prism-f-line);background:var(--prism-f-soft)}
+  .family-col.p-col{border-color:var(--prism-p-line);background:var(--prism-p-soft)}
+  .family-col-tag{font-family:'Space Mono',monospace;font-size:10px;
+    letter-spacing:1.5px;font-weight:700;margin-bottom:8px;text-align:center}
+  .family-col.f-col .family-col-tag{color:var(--prism-f)}
+  .family-col.p-col .family-col-tag{color:var(--prism-p)}
+  .family-col-words{display:flex;flex-wrap:wrap;gap:5px;justify-content:center}
+  .family-col-words span{font-family:'Fraunces',serif;font-weight:700;
+    font-size:13px;color:var(--ink);background:var(--paper);
+    border:1px solid var(--line);border-radius:4px;padding:3px 8px}
+  .family-col.f-col .family-col-words span em{font-style:normal;
+    color:var(--prism-f);font-weight:900;border-bottom:2px solid var(--prism-f-line);padding:0 1px}
+  .family-col.p-col .family-col-words span em{font-style:normal;
+    color:var(--prism-p);font-weight:900;border-bottom:2px solid var(--prism-p-line);padding:0 1px}
+
+  .grimm-trivia{margin-top:16px;padding:12px 14px;background:var(--paper2);
+    border-radius:8px;border-left:3px solid var(--ink);font-family:'Gowun Batang',serif;
+    font-size:13px;line-height:1.7;color:#5c4e3c}
+  .grimm-trivia b{color:var(--ink);font-weight:700}
+  .grimm-trivia .gt-tag{display:inline-block;font-family:'Space Mono',monospace;
+    font-size:10px;letter-spacing:1.5px;color:#7a6a52;font-weight:700;
+    margin-bottom:6px;text-transform:uppercase}
+
+  /* CTA & 네비 */
+  .intro-cta{display:block;width:100%;background:var(--gold);color:#fff;
+    border:none;border-radius:8px;padding:18px;font-family:'Space Mono',monospace;
+    font-size:14px;font-weight:700;letter-spacing:2px;cursor:pointer;margin-top:24px;
+    box-shadow:0 8px 20px -6px rgba(184,137,59,.55);text-transform:uppercase}
+  .intro-cta:active{transform:scale(.985)}
+  .intro-nav{display:flex;justify-content:space-between;gap:12px;margin-top:18px}
+  .intro-arrow{background:none;border:1px solid var(--line);border-radius:6px;
+    padding:12px 22px;font-family:'Space Mono',monospace;font-size:13px;
+    color:var(--ink);cursor:pointer;font-weight:700;transition:all .15s}
+  .intro-arrow:disabled{opacity:.35;cursor:default}
+  .intro-arrow:not(:disabled):active{background:var(--paper2)}
+  .intro-arrow.next{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+  .intro-arrow.next:active{background:var(--root)}
+
+  /* 완료 안내 화면 */
+  #s-done{display:none;flex-direction:column;align-items:center;justify-content:center;
+    padding:40px 28px;min-height:100vh;text-align:center}
+  #s-done.on{display:flex}
+  .done-h{font-family:'Fraunces',serif;font-weight:900;font-size:28px;
+    color:var(--ink);margin-bottom:16px;line-height:1.3}
+  .done-p{font-family:'Gowun Batang',serif;font-size:14px;line-height:1.85;
+    color:#5c4e3c;max-width:340px}
+  .done-tag{font-family:'Space Mono',monospace;font-size:11px;letter-spacing:2px;
+    color:var(--gold);font-weight:700;margin-bottom:14px;text-transform:uppercase}
+  .done-restart{margin-top:28px;background:none;border:1px solid var(--line);
+    border-radius:6px;padding:12px 22px;font-family:'Space Mono',monospace;
+    font-size:12px;color:#7a6a52;cursor:pointer;letter-spacing:1px}
+  .done-restart:active{background:var(--paper2);color:var(--ink)}
+</style>
+</head>
+<body>
+<div id="app">
+
+  <!-- ===== Intro 온보딩 ===== -->
+  <section id="s-intro">
+    <div class="intro-top">
+      <div class="intro-dots" id="introDots">
+        <span class="dot active"></span><span class="dot"></span><span class="dot"></span>
+      </div>
+      <button class="intro-skip" onclick="finishIntro()">스킵 ›</button>
+    </div>
+    <div class="intro-brand">VOCATREE · SPECTRUM</div>
+
+    <div class="intro-slides" id="introSlides">
+
+      <!-- 슬라이드 1: 한국어 이중 어휘 → 영어도 똑같이 -->
+      <div class="intro-slide on">
+        <div class="intro-illust">
+          <table class="duo-table">
+            <thead>
+              <tr>
+                <th>우리말</th>
+                <th></th>
+                <th>한자어</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <div class="duo-native">엄마</div>
+                  <div class="duo-native-sub">어머니</div>
+                </td>
+                <td class="duo-arrow">→</td>
+                <td>
+                  <div class="duo-sino">모<span class="hanja">母</span></div>
+                  <div class="duo-native-sub">모성·모유·모교</div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="duo-native">아빠</div>
+                  <div class="duo-native-sub">아버지</div>
+                </td>
+                <td class="duo-arrow">→</td>
+                <td>
+                  <div class="duo-sino">부<span class="hanja">父</span></div>
+                  <div class="duo-native-sub">부친·부성·조부</div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+          <div class="ko-en-divider"><span>SAME PATTERN IN ENGLISH</span></div>
+
+          <table class="duo-table">
+            <thead>
+              <tr>
+                <th>일상어</th>
+                <th></th>
+                <th>학술어</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <div class="duo-en-f">mom · mother</div>
+                </td>
+                <td class="duo-arrow">→</td>
+                <td>
+                  <div class="duo-en-p">mater</div>
+                  <div class="duo-native-sub">maternal · maternity</div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="duo-en-f">dad · father</div>
+                </td>
+                <td class="duo-arrow">→</td>
+                <td>
+                  <div class="duo-en-p">pater</div>
+                  <div class="duo-native-sub">paternal · patriarch</div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="pf-question">
+          <div class="pf-tag">QUESTION</div>
+          <b>father와 paternal,<br>foot와 pedestrian,<br>fish와 Pisces</b>
+          <div style="font-family:'Gowun Batang',serif;font-size:13px;color:#5c4e3c;margin-top:8px;line-height:1.7">
+            뜻은 같은데, 왜 <b style="color:var(--prism-f)">F</b>와 <b style="color:var(--prism-p)">P</b>로 갈리는 걸까요?
+          </div>
+        </div>
+
+        <div class="intro-tag" style="margin-top:18px">PATTERN</div>
+        <div class="intro-h">한국어처럼,<br>영어에도 두 층이 있습니다.</div>
+        <div class="intro-p">
+          한국어가 <b>고유어</b>(엄마·아빠)와 <b>한자어</b>(모·부) 두 층으로 이루어진 것처럼,
+          영어도 <b style="color:var(--prism-f)">게르만 본래어</b>(mother·father)와
+          <b style="color:var(--prism-p)">라틴 차용어</b>(maternal·paternal) 두 층으로 이루어져 있습니다.<br>
+          <span class="intro-em">두 층은 우연히 닮은 게 아닙니다.</span>
+        </div>
+      </div>
+
+      <!-- 슬라이드 2: 자매 언어, 자음 이동 -->
+      <div class="intro-slide">
+        <div class="intro-illust tree-illust">
+          <svg class="tree-svg" viewBox="0 0 320 240" xmlns="http://www.w3.org/2000/svg">
+            <!-- PIE root -->
+            <g font-family="Fraunces, serif">
+              <rect x="90" y="6" width="140" height="54" rx="8"
+                    fill="var(--ink)" />
+              <text x="160" y="24" text-anchor="middle" font-size="10"
+                    fill="var(--gold)" font-family="Space Mono, monospace"
+                    letter-spacing="1.5">PIE · 인도유럽조어</text>
+              <text x="160" y="48" text-anchor="middle" font-size="15"
+                    fill="#fff" font-weight="900">*ph₂tér-</text>
+            </g>
+            <!-- branches -->
+            <line x1="160" y1="60" x2="80" y2="92" stroke="var(--line)" stroke-width="1.5"/>
+            <line x1="160" y1="60" x2="240" y2="92" stroke="var(--line)" stroke-width="1.5"/>
+            <!-- Germanic -->
+            <g>
+              <rect x="14" y="92" width="132" height="42" rx="8"
+                    fill="var(--prism-f-soft)" stroke="var(--prism-f-line)" stroke-width="1.5"/>
+              <text x="80" y="108" text-anchor="middle" font-size="10"
+                    fill="var(--prism-f)" font-family="Space Mono, monospace"
+                    font-weight="700" letter-spacing="1">GERMANIC 가지</text>
+              <text x="80" y="126" text-anchor="middle" font-size="15"
+                    fill="var(--ink)" font-family="Fraunces, serif" font-weight="900">
+                <tspan fill="var(--prism-f)">f</tspan>ather
+              </text>
+            </g>
+            <!-- Latin -->
+            <g>
+              <rect x="174" y="92" width="132" height="42" rx="8"
+                    fill="var(--prism-p-soft)" stroke="var(--prism-p-line)" stroke-width="1.5"/>
+              <text x="240" y="108" text-anchor="middle" font-size="10"
+                    fill="var(--prism-p)" font-family="Space Mono, monospace"
+                    font-weight="700" letter-spacing="1">LATIN 가지</text>
+              <text x="240" y="126" text-anchor="middle" font-size="15"
+                    fill="var(--ink)" font-family="Fraunces, serif" font-weight="900">
+                <tspan fill="var(--prism-p)">p</tspan>ater
+              </text>
+            </g>
+            <!-- 변화 표시 -->
+            <g>
+              <text x="80" y="160" text-anchor="middle" font-size="10"
+                    fill="#7a6a52" font-family="Space Mono, monospace">소리가 변했음</text>
+              <text x="80" y="178" text-anchor="middle" font-size="16"
+                    fill="var(--prism-f)" font-family="Fraunces, serif" font-weight="900">
+                p → f
+              </text>
+              <text x="240" y="160" text-anchor="middle" font-size="10"
+                    fill="#7a6a52" font-family="Space Mono, monospace">소리가 그대로</text>
+              <text x="240" y="178" text-anchor="middle" font-size="16"
+                    fill="var(--prism-p)" font-family="Fraunces, serif" font-weight="900">
+                p · p
+              </text>
+            </g>
+            <!-- 영어 합류 -->
+            <line x1="80" y1="186" x2="160" y2="210" stroke="var(--line)" stroke-width="1.5" stroke-dasharray="3,3"/>
+            <line x1="240" y1="186" x2="160" y2="210" stroke="var(--line)" stroke-width="1.5" stroke-dasharray="3,3"/>
+            <g>
+              <rect x="110" y="210" width="100" height="26" rx="6"
+                    fill="var(--gold)" />
+              <text x="160" y="227" text-anchor="middle" font-size="12"
+                    fill="#fff" font-family="Fraunces, serif" font-weight="900">
+                ENGLISH 영어
+              </text>
+            </g>
+          </svg>
+          <div class="tree-caption">
+            두 가지가 시간이 흐른 뒤 영어라는 한 언어 안에서 다시 만났습니다.<br>
+            그래서 영어에는 같은 뿌리에서 온 단어가 <b>두 가지 형태</b>로 존재합니다.
+          </div>
+        </div>
+
+        <div class="rule-box">
+          <span class="rule-label">게르만 가지에서만 일어난 자음 이동</span>
+          <span class="rule-p">P</span>
+          <span class="rule-arrow">→</span>
+          <span class="rule-f">F</span>
+        </div>
+
+        <div class="intro-tag" style="margin-top:18px">DISCOVERY</div>
+        <div class="intro-h">P가 F로 바뀌었습니다.</div>
+        <div class="intro-p">
+          수천 년 전, 유럽 언어들이 갈라지기 전에는 <b>하나의 조상 언어</b>가 있었습니다.
+          이 조상 언어가 여러 갈래로 나뉘면서,
+          <b style="color:var(--prism-f)">게르만 가지</b>에서는 P 소리가 일정한 규칙에 따라 F로 바뀌었고,
+          <b style="color:var(--prism-p)">라틴 가지</b>에서는 P 소리가 그대로 남았습니다.<br>
+          <span class="intro-em">그래서 father와 pater, foot와 pes가 짝이 됩니다.</span>
+        </div>
+      </div>
+
+      <!-- 슬라이드 3: 분광 + Grimm 트리비아 -->
+      <div class="intro-slide">
+        <div class="intro-illust prism-illust">
+          <svg class="prism-svg" viewBox="0 0 320 200" xmlns="http://www.w3.org/2000/svg">
+            <!-- 어근 from left -->
+            <g>
+              <text x="14" y="100" font-size="11" fill="#7a6a52"
+                    font-family="Space Mono, monospace" letter-spacing="1">PIE root</text>
+              <text x="14" y="118" font-size="20" fill="var(--ink)"
+                    font-family="Fraunces, serif" font-weight="900">*pele-</text>
+              <text x="14" y="136" font-size="10" fill="#7a6a52"
+                    font-family="Space Mono, monospace">"to fill"</text>
+            </g>
+            <!-- 화살표 -->
+            <line x1="90" y1="100" x2="135" y2="100" stroke="var(--gold)" stroke-width="2"/>
+            <!-- 프리즘 -->
+            <polygon points="135,75 165,100 135,125" fill="var(--ink)" />
+            <text x="150" y="103" text-anchor="middle" font-size="10"
+                  fill="#fff" font-family="Space Mono, monospace">▶</text>
+            <!-- F 가지 -->
+            <line x1="165" y1="100" x2="200" y2="60" stroke="var(--prism-f)" stroke-width="2"/>
+            <rect x="200" y="44" width="105" height="36" rx="6"
+                  fill="var(--prism-f-soft)" stroke="var(--prism-f-line)" stroke-width="1.5"/>
+            <text x="252" y="58" text-anchor="middle" font-size="9"
+                  fill="var(--prism-f)" font-family="Space Mono, monospace"
+                  font-weight="700" letter-spacing="1">GERMANIC F</text>
+            <text x="252" y="74" text-anchor="middle" font-size="14"
+                  fill="var(--ink)" font-family="Fraunces, serif" font-weight="900">
+              <tspan fill="var(--prism-f)">f</tspan>ill · <tspan fill="var(--prism-f)">f</tspan>ull
+            </text>
+            <!-- P 가지 -->
+            <line x1="165" y1="100" x2="200" y2="140" stroke="var(--prism-p)" stroke-width="2"/>
+            <rect x="200" y="124" width="105" height="36" rx="6"
+                  fill="var(--prism-p-soft)" stroke="var(--prism-p-line)" stroke-width="1.5"/>
+            <text x="252" y="138" text-anchor="middle" font-size="9"
+                  fill="var(--prism-p)" font-family="Space Mono, monospace"
+                  font-weight="700" letter-spacing="1">LATIN P</text>
+            <text x="252" y="154" text-anchor="middle" font-size="14"
+                  fill="var(--ink)" font-family="Fraunces, serif" font-weight="900">
+              com<tspan fill="var(--prism-p)">ple</tspan>te · su<tspan fill="var(--prism-p)">ppl</tspan>y
+            </text>
+          </svg>
+        </div>
+
+        <div class="family-pair">
+          <div class="family-col f-col">
+            <div class="family-col-tag">F · 게르만 가지</div>
+            <div class="family-col-words">
+              <span><em>f</em>ill</span>
+              <span><em>f</em>ull</span>
+            </div>
+          </div>
+          <div class="family-col p-col">
+            <div class="family-col-tag">P · 라틴 가지</div>
+            <div class="family-col-words">
+              <span>com<em>ple</em>te</span>
+              <span>sup<em>pl</em>y</span>
+              <span>de<em>ple</em>te</span>
+              <span>im<em>ple</em>ment</span>
+              <span>re<em>ple</em>nish</span>
+              <span><em>plus</em></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="intro-tag" style="margin-top:18px">SPECTRUM</div>
+        <div class="intro-h">하나의 빛,<br>여러 파장으로 분광됩니다.</div>
+        <div class="intro-p">
+          하나의 PIE 어근 <b>*pele-</b>(채우다)에서 출발한 단어들이,
+          게르만 가지로 가면 <b style="color:var(--prism-f)">F</b>로,
+          라틴 가지로 가면 <b style="color:var(--prism-p)">P</b>로 갈라집니다.<br>
+          <b>fill</b>과 <b>complete</b>가 같은 뿌리에서 온 단어라는 걸 알면,
+          처음 보는 <b>replenish</b>·<b>implement</b>도 <b>fill</b>의 친척으로 즉시 이해됩니다.
+          <span class="intro-em">소리의 짝을 알면, 단어 가족이 보입니다.</span>
+        </div>
+
+        <div class="grimm-trivia">
+          <span class="gt-tag">한 가지 더</span><br>
+          이 P → F 변화의 규칙을 처음 정리한 사람은
+          <b>야코프 그림</b>(Jacob Grimm)입니다.
+          네, <b>『그림 동화』</b>의 그 그림 형제 중 한 명이죠.
+          그래서 학자들은 이 규칙을 <b>Grimm's Law(그림의 법칙)</b>라고 부릅니다.
+        </div>
+
+        <button class="intro-cta" onclick="finishIntro()">보카트리 Spectrum 시작하기 ›</button>
+      </div>
+
+    </div>
+
+    <div class="intro-nav">
+      <button class="intro-arrow" id="introPrev" onclick="introMove(-1)" disabled>‹ 이전</button>
+      <button class="intro-arrow next" id="introNext" onclick="introMove(1)">다음 ›</button>
+    </div>
+  </section>
+
+  <!-- ===== 완료 안내 (인트로 통과 후 임시 화면) ===== -->
+  <section id="s-done">
+    <div class="done-tag">PREVIEW</div>
+    <h1 class="done-h">인트로 미리보기 끝!</h1>
+    <p class="done-p">
+      여기서부터는 Lesson 1 <b>P ↔ F</b> 챕터가 이어집니다.
+      본 레슨은 1차 완성본을 바탕으로 곧 추가될 예정입니다.
+    </p>
+    <button class="done-restart" onclick="restartIntro()">인트로 다시 보기</button>
+  </section>
+
+</div>
+
+<script>
+  /* ===== 인트로 온보딩 (3장 슬라이드) ===== */
+  const INTRO_KEY='vts_intro_seen';
+  let introIdx=0;
+
+  function introMove(d){
+    const total=document.querySelectorAll('.intro-slide').length;
+    introIdx=Math.max(0,Math.min(total-1, introIdx+d));
+    introUpdate();
+  }
+  function introUpdate(){
+    const slides=document.querySelectorAll('.intro-slide');
+    const dots=document.querySelectorAll('#introDots .dot');
+    slides.forEach((s,i)=>s.classList.toggle('on', i===introIdx));
+    dots.forEach((d,i)=>d.classList.toggle('active', i===introIdx));
+    const prev=document.getElementById('introPrev');
+    const next=document.getElementById('introNext');
+    if(prev) prev.disabled = introIdx===0;
+    if(next){
+      if(introIdx===slides.length-1){
+        next.style.visibility='hidden';
+      }else{
+        next.style.visibility='visible';
+      }
+    }
+    const wrap=document.getElementById('introSlides');
+    if(wrap) wrap.scrollTop=0;
+    document.getElementById('s-intro').scrollTop=0;
+  }
+  function finishIntro(){
+    try{ localStorage.setItem(INTRO_KEY,'1'); }catch(e){}
+    document.getElementById('s-intro').style.display='none';
+    document.getElementById('s-done').classList.add('on');
+  }
+  function restartIntro(){
+    try{ localStorage.removeItem(INTRO_KEY); }catch(e){}
+    document.getElementById('s-done').classList.remove('on');
+    document.getElementById('s-intro').style.display='flex';
+    introIdx=0;
+    introUpdate();
+  }
+
+  /* PWA 서비스 워커 등록 */
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('./sw.js').catch(() => {});
+    });
+  }
+</script>
+</body>
+</html>
