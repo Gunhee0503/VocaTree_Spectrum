@@ -1224,7 +1224,7 @@
         <span class="tag">독해 적용</span>
         <h2 class="h2" style="margin-top:6px">학습한 어휘로<br>실전 지문 읽기</h2>
         <div class="prose" style="margin-top:10px">
-          P↔F 갈래에서 익힌 단어들이 실제 영어 지문 속에서 어떻게 쓰이는지 확인해보세요.
+          <span class="reading-pair">P ↔ F</span> 갈래에서 익힌 단어들이 실제 영어 지문 속에서 어떻게 쓰이는지 확인해보세요.
           난이도를 선택해 지문을 풀 수 있습니다.
         </div>
       </div>
@@ -2047,11 +2047,60 @@ const LESSON2_PART01 = [
    choices:['보균자','치료자','환자','연구자'], answer:0}
 ];
 
+const LESSON2_READING = {
+  easy: {
+    level_label: 'Basic · 중3~고1 레벨',
+    passage_en: "Parents are often in charge of many responsibilities at home. They take care of their children, manage finances, and solve unexpected problems every day. Because of these pressures, they sometimes become emotionally charged and easily irritated. However, good parents try not to release their stress onto their children. Instead, they take time to calm down and think carefully before reacting. In other words, they try to ______.",
+    question_ko: "빈칸에 들어갈 말로 가장 적절한 것은?",
+    choices: [
+      "ignore their family members",
+      "avoid all responsibility at home",
+      "manage stress and emotional pressure",
+      "blame others for their problems",
+      "express anger immediately"
+    ],
+    answer: 2,
+    ko_trans: "부모는 흔히 집에서 많은 책임을 맡는다(in charge). 그들은 아이를 돌보고, 재정을 관리하며, 매일 예기치 못한 문제를 해결한다. 이런 압박 때문에 그들은 때때로 감정이 격해지고(emotionally charged) 쉽게 짜증을 낸다. 그러나 좋은 부모는 자신의 스트레스를 아이에게 풀지 않으려 한다. 대신, 반응하기 전에 시간을 들여 마음을 가라앉히고 신중히 생각한다. 다시 말해, 그들은 (스트레스와 감정적 압박을 다루려) 노력한다.",
+    ko_haesul: "지문은 부모가 떠안는 책임(<b>in charge</b>)과 그로 인한 감정적 부담(<b>emotionally charged</b>)을 다스리는 모습을 보여준다. 빈칸 앞의 ‘스트레스를 아이에게 풀지 않으려 한다 · 마음을 가라앉힌다’가 단서이므로, 부담을 ‘다루는’ 내용이 와야 한다. 따라서 ③ <b>manage stress and emotional pressure</b>가 정답이다."
+  },
+  medium: {
+    level_label: 'Intermediate · 고1~고2 레벨',
+    passage_en: "Being in charge of a group is often more stressful than people imagine. Leaders are not only responsible for making important decisions, but are also emotionally charged by the pressure and expectations of others. When problems occur, they are frequently charged with blame, even when the situation is beyond their control. Because of this constant burden, many leaders experience exhaustion and anxiety over time. Therefore, people who take leadership positions must learn how to ______ in healthy ways.",
+    question_ko: "빈칸에 들어갈 말로 가장 적절한 것은?",
+    choices: [
+      "avoid social responsibility",
+      "escape from difficult situations",
+      "manage heavy burdens and pressure",
+      "criticize people without evidence",
+      "express emotions without restraint"
+    ],
+    answer: 2,
+    ko_trans: "집단을 책임지고 이끄는 일은 흔히 사람들이 생각하는 것보다 더 큰 스트레스를 준다. 리더는 중요한 결정을 내릴 책임이 있을 뿐 아니라, 타인의 압박과 기대에 의해 감정적으로도 짓눌린다(charged). 문제가 생기면, 상황이 자신의 통제를 벗어난 경우에도 종종 비난을 뒤집어쓴다(charged with blame). 이런 끊임없는 부담 때문에 많은 리더가 시간이 지나며 탈진과 불안을 겪는다. 따라서 리더의 자리에 오르는 사람은 무거운 부담과 압박을 건강한 방식으로 (다루는) 법을 배워야 한다.",
+    ko_haesul: "지문 전체가 리더가 떠안는 <b>무거운 부담·압박</b>을 다루는 내용이다. <b>in charge</b> / <b>emotionally charged</b> / <b>charged with blame</b>처럼 charge의 ‘짊어지다·떠안다’ 이미지가 반복되며, 빈칸에는 그 부담을 건강하게 ‘다루는’ 방법이 들어가야 한다. 따라서 ③ <b>manage heavy burdens and pressure</b>가 정답이다."
+  },
+  hard: {
+    level_label: 'Advanced · 고2~고3 레벨',
+    passage_en: "Individuals placed in positions of authority are frequently expected to absorb the emotional and practical burdens of the groups they lead. Executives, political leaders, and even teachers are constantly charged with responsibility for outcomes that are not always fully within their control. Over time, this continuous exposure to pressure can leave them emotionally charged, making rational decision-making increasingly difficult. Furthermore, when organizations experience failure, society often seeks someone to blame, regardless of the complexity of the situation. Consequently, effective leaders must develop the ability to ______ while maintaining emotional stability.",
+    question_ko: "빈칸에 들어갈 말로 가장 적절한 것은?",
+    choices: [
+      "transfer responsibility onto others",
+      "conceal their mistakes completely",
+      "balance responsibility with emotional control",
+      "avoid making difficult decisions",
+      "intensify conflicts within the organization"
+    ],
+    answer: 2,
+    ko_trans: "권위 있는 자리에 놓인 사람들은 흔히 자신이 이끄는 집단의 감정적·실질적 부담을 떠안을(absorb) 것으로 기대된다. 경영자, 정치 지도자, 심지어 교사조차도 늘 자신의 통제를 온전히 벗어난 결과에 대한 책임을 떠맡는다(charged with responsibility). 시간이 지나면서 이런 지속적인 압박 노출은 그들을 감정적으로 격앙되게(emotionally charged) 만들어, 합리적인 의사결정을 점점 더 어렵게 한다. 게다가 조직이 실패를 겪으면, 사회는 상황의 복잡성과 무관하게 종종 비난할 누군가를 찾는다. 따라서 유능한 리더는 감정적 안정을 유지하면서 (책임과 감정 통제의 균형을 잡는) 능력을 길러야 한다.",
+    ko_haesul: "지문은 리더가 떠안는 책임(<b>charged with responsibility</b>)과 그로 인한 감정적 격앙(<b>emotionally charged</b>)을 함께 다스려야 함을 강조한다. 빈칸 뒤 ‘<b>while maintaining emotional stability</b>(감정적 안정을 유지하며)’가 핵심 단서로, 책임과 감정 통제 사이의 ‘균형’이 필요하다. 따라서 ③ <b>balance responsibility with emotional control</b>가 정답이다."
+  }
+};
+
 const LESSONS = {
   1:{ meta:LESSON1_META, data:LESSON1_DATA, classify:LESSON1_CLSDATA,
     part01:LESSON1_PART01, part02_pool:LESSON1_PART02_POOL,
     part03_pool:LESSON1_PART03_POOL, reading_passages:LESSON1_READING },
-  2:{ meta:LESSON2_META, data:LESSON2_DATA, classify:LESSON2_CLSDATA, part01:LESSON2_PART01 }
+  2:{ meta:LESSON2_META, data:LESSON2_DATA, classify:LESSON2_CLSDATA, part01:LESSON2_PART01,
+    reading_passages:LESSON2_READING }
 };
 const LESSON_COMING = [
   { no:3, pair:'T ↔ TH', meaning:'tres / three',  ko:'셋' },
@@ -2730,6 +2779,8 @@ function readingMenu(){
     return;
   }
   const passages = (L && L.reading_passages) || {};
+  const pairEl = document.querySelector('.reading-pair');
+  if(pairEl) pairEl.textContent = L.meta.pairLabel;
   const levels = [
     { key:'easy',   label:'Basic',        sub:'기본', grade:'중3~고1 레벨', desc:'학습한 어휘가 일상적 문맥에서 사용된 짧은 지문' },
     { key:'medium', label:'Intermediate', sub:'중급', grade:'고1~고2 레벨', desc:'학습한 어휘가 자연스럽게 녹아든 중간 길이 지문' },
@@ -2776,7 +2827,8 @@ function renderReadingQuiz(){
       'plant','place','plain','plateau','plateaus','platform',
       'fill','full','fold','flat',
       'supply','accomplish','accomplishes','accomplished','complications',
-      'plenty','plenties','plus','surplus','perplex'
+      'plenty','plenties','plus','surplus','perplex',
+      'charge','charged','charges','discharge','discharged','carry','carrier','cargo'
     ];
     // 단어 경계 기준으로 매칭, 단어 안의 어근만 보랏빛 강조
     return text.replace(/[A-Za-z]+/g, (word) => {
