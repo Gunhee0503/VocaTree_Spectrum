@@ -5,7 +5,7 @@
    - 새 버전 배포 시 CACHE_VERSION만 올리면 기존 캐시가 정리됨
 */
 
-const CACHE_VERSION = 'vts-v4';
+const CACHE_VERSION = 'vts-v5';
 const APP_SHELL = [
   './',
   './index.html',
@@ -48,6 +48,22 @@ self.addEventListener('activate', (event) => {
 self.addEventListener('fetch', (event) => {
   const req = event.request;
   if (req.method !== 'GET') return;
+
+  // 페이지(내비게이션)는 네트워크 우선 → 새로 배포하면 즉시 반영, 오프라인이면 캐시 폴백
+  if (req.mode === 'navigate') {
+    event.respondWith(
+      fetch(req)
+        .then((res) => {
+          const copy = res.clone();
+          caches.open(CACHE_VERSION).then((cache) => cache.put('./index.html', copy));
+          return res;
+        })
+        .catch(() => caches.match('./index.html').then((c) => c || caches.match('./')))
+    );
+    return;
+  }
+
+  // 그 외 자원(이미지 등): cache-first + 네트워크 폴백
   event.respondWith(
     caches.match(req).then((cached) => {
       if (cached) return cached;
@@ -57,11 +73,6 @@ self.addEventListener('fetch', (event) => {
           const copy = res.clone();
           caches.open(CACHE_VERSION).then((cache) => cache.put(req, copy));
           return res;
-        })
-        .catch(() => {
-          if (req.mode === 'navigate') {
-            return caches.match('./index.html');
-          }
         });
     })
   );

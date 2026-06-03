@@ -2095,11 +2095,238 @@ const LESSON2_READING = {
   }
 };
 
+const LESSON2_PART02_POOL = [
+  {
+    w:'charge',
+    sentence:"Restaurants often [charge] extra money for delivery services.",
+    hint:"<b>charge</b> 부담을 싣다, 지우다",
+    choices:[
+      "to ask someone to pay money for a service",
+      "to move through a narrow space",
+      "to attract someone strongly",
+      "to divide a book into parts",
+      "to repeat words rhythmically"
+    ],
+    answer:0,
+    ko_trans:"식당들은 흔히 배달 서비스에 대해 추가 요금을 부과한다.",
+    ko_etym:"<b>charge</b> ← 라틴 <b>carricare</b>(수레 <b>carrus</b>에 싣다) → 떠안기다 → 값을 부과하다"
+  },
+  {
+    w:'chief',
+    sentence:"The [chief] of the company announced a new policy.",
+    hint:"<b>chief</b> ‘cap, captain’ 머리, 우두머리",
+    choices:[
+      "a person who carries goods",
+      "the highest-ranking person in a group",
+      "a musical performance",
+      "a map or graph",
+      "a written invitation"
+    ],
+    answer:1,
+    ko_trans:"그 회사의 최고 책임자가 새 정책을 발표했다.",
+    ko_etym:"<b>chief</b> ← 라틴 <b>caput</b>(머리). 같은 뿌리가 단단한 C(<b>cap</b>tain)와 부드러운 CH(<b>chief/chef</b>)로 갈라졌다 → 우두머리"
+  },
+  {
+    w:'capital',
+    sentence:"Seoul is the [capital] of South Korea.",
+    hint:"<b>cap, captain</b> 머리 수(首), 우두머리",
+    choices:[
+      "a strong challenge",
+      "a narrow water route",
+      "the main city of a country",
+      "a kind of song",
+      "an emotional reaction"
+    ],
+    answer:2,
+    ko_trans:"서울은 대한민국의 수도다.",
+    ko_etym:"<b>capital</b> ← <b>caput</b>(머리) → 으뜸가는 도시 → 수도"
+  },
+  {
+    w:'charged',
+    sentence:"The speech was highly [charged] with political tension.",
+    hint:"<b>charge</b> 마음에 감정을 채우다, 통에 무언가를 채우다",
+    choices:[
+      "transported by a large vehicle",
+      "written in several chapters",
+      "led by a military captain",
+      "filled with strong emotional or political energy",
+      "repeated in musical form"
+    ],
+    answer:3,
+    ko_trans:"그 연설은 정치적 긴장으로 매우 격앙되어 있었다.",
+    ko_etym:"<b>charged</b> ← carrus(수레)에 가득 싣다 → 감정·에너지가 가득 실린"
+  },
+  {
+    w:'chapter',
+    sentence:"We read the first [chapter] of the novel in class today.",
+    hint:"<b>capt, chapt</b> ‘머리말, 첫 단락’",
+    choices:[
+      "a difficult competition",
+      "a narrow passage for water",
+      "a large amount of cargo",
+      "a military leader",
+      "one of the main sections of a book"
+    ],
+    answer:4,
+    ko_trans:"우리는 오늘 수업에서 그 소설의 첫 장을 읽었다.",
+    ko_etym:"<b>chapter</b> ← caput의 축소형 <b>capitulum</b>(작은 머리·표제) → 글의 한 장(章). cap → ch (C↔CH)"
+  },
+  {
+    w:'enchanted',
+    sentence:"The audience was [enchanted] by the magician's performance.",
+    hint:"<b>en, in</b>(안에) + <b>cant, chant</b>(노래) → 노래로 유혹하다",
+    choices:[
+      "strongly attracted as if by magic",
+      "charged with a crime",
+      "transported across a canal",
+      "divided into small sections",
+      "placed in charge of a group"
+    ],
+    answer:0,
+    ko_trans:"관객은 마술사의 공연에 매혹되었다.",
+    ko_etym:"<b>enchant</b> ← <b>en</b>(안으로) + <b>cantare</b>(노래하다) → 노래로 홀리다. cant → chant (C↔CH)"
+  },
+  {
+    w:'channeled',
+    sentence:"He [channeled] his anger into his music.",
+    hint:"<b>canal, channel</b> 무언가가 흐르도록 길을 만들어주는 통로, 물길",
+    choices:[
+      "officially accused someone of a crime",
+      "directed emotions or energy into a particular activity",
+      "transported goods across water",
+      "divided a book into smaller sections",
+      "attacked an enemy suddenly"
+    ],
+    answer:1,
+    ko_trans:"그는 자신의 분노를 음악으로 쏟아냈다.",
+    ko_etym:"<b>channel</b> ← 라틴 <b>canalis</b>(물길). canal(C) ↔ channel(CH) → 한 방향으로 흘려보내다"
+  },
+  {
+    w:'channels',
+    sentence:"News travels quickly through social media [channels].",
+    hint:"<b>canal, channel</b> 무언가가 흐르도록 길을 만들어주는 통로, 물길",
+    choices:[
+      "people in charge of a group",
+      "songs sung repeatedly",
+      "routes through which information moves",
+      "expensive products",
+      "emotional arguments"
+    ],
+    answer:2,
+    ko_trans:"뉴스는 소셜미디어 채널을 통해 빠르게 퍼진다.",
+    ko_etym:"<b>channel</b> ← <b>canalis</b>(물길) → 정보가 흐르는 통로"
+  },
+  {
+    w:'charges',
+    sentence:"He denied the [charges] made against him by the media.",
+    hint:"<b>charge</b> 비난, 고발, 프레임을 싣다, 지우다",
+    choices:[
+      "musical performances for voices",
+      "routes used for communication",
+      "written sections of a book",
+      "official accusations or claims of wrongdoing",
+      "methods of transportation"
+    ],
+    answer:3,
+    ko_trans:"그는 언론이 자신에게 제기한 혐의를 부인했다.",
+    ko_etym:"<b>charge</b> ← carrus(싣다) → 씌워진 부담 → 혐의·고발"
+  },
+  {
+    w:'capital',
+    sentence:"He invested a large amount of [capital] in his new business.",
+    hint:"<b>cap, captain</b> 머리, 제일 중요한 본질, 자본",
+    choices:[
+      "a narrow route through which water flows",
+      "a person who leads an organization",
+      "a strong emotional reaction",
+      "a section of a written book",
+      "money or wealth used to start or support a business"
+    ],
+    answer:4,
+    ko_trans:"그는 새 사업에 많은 자본을 투자했다.",
+    ko_etym:"<b>capital</b> ← <b>caput</b>(머리) → 으뜸가는 밑천 → 자본"
+  }
+];
+
+const LESSON2_PART03_POOL = [
+  {
+    answer:'cargo', first:'c',
+    sentence_en:"The ship carried a large amount of c[BLANK] across the ocean.",
+    ko:"그 배는 바다를 가로질러 많은 [화물]을 운반했다.",
+    hint_html:"<span class='hint-reveal' data-reveal='car · carry'>[ ? ]</span> ‘수레 · 이동시키다’에서 유래 → 실어 놓은 짐 → 화물",
+    accept:['cargo','cargos','cargoes']
+  },
+  {
+    answer:'charge', first:'c',
+    sentence_en:"She is in c[BLANK] of the marketing team.",
+    ko:"그녀는 마케팅 팀을 [담당하고] 있다.",
+    hint_html:"<span class='hint-reveal' data-reveal='cargo'>[ ? ]</span> ‘화물’에서 유래 → 실어 놓은 짐 → 책임 · 담당",
+    accept:['charge']
+  },
+  {
+    answer:'channel', first:'c',
+    sentence_en:"Social media is a good c[BLANK] to share ideas.",
+    ko:"SNS는 아이디어를 나누기 좋은 [수단]이야.",
+    hint_html:"<span class='hint-reveal' data-reveal='canal'>[ ? ]</span> ‘수로 · 통로’에서 유래 → 통로 · 수단",
+    accept:['channel','channels']
+  },
+  {
+    answer:'capital', first:'c',
+    sentence_en:"Please write your name in c[BLANK] letters.",
+    ko:"이름을 [대문자]로 쓰세요.",
+    hint_html:"<span class='hint-reveal' data-reveal='cap'>[ ? ]</span> ‘머리(caput)’에서 유래 → 머리글자 → 대문자",
+    accept:['capital','capitals']
+  },
+  {
+    answer:'channel', first:'c',
+    sentence_en:"He c[BLANK](e)d his anger into his music.",
+    ko:"그는 분노를 음악으로 [풀어냈다].",
+    hint_html:"<span class='hint-reveal' data-reveal='canal'>[ ? ]</span> ‘수로 · 통로’에서 유래 → 감정 · 에너지 · 정보가 흐르는 길",
+    accept:['channel','channeled','channelled']
+  },
+  {
+    answer:'charge', first:'c',
+    sentence_en:"He was c[BLANK](e)d with stealing company money.",
+    ko:"그는 회사 돈을 훔친 혐의로 [기소되었다].",
+    hint_html:"<span class='hint-reveal' data-reveal='cargo'>[ ? ]</span> ‘화물’에서 유래 → 짐 · 부담을 지우다 → 혐의 · 기소 · 프레임",
+    accept:['charge','charged']
+  },
+  {
+    answer:'charge', first:'c',
+    sentence_en:"The room was emotionally c[BLANK](e)d after the speech.",
+    ko:"그 연설 이후 방 안은 [감정으로 가득 차] 있었다.",
+    hint_html:"<span class='hint-reveal' data-reveal='cargo'>[ ? ]</span> ‘화물’에서 유래 → 짐을 싣다 → 마음에 감정을 채우다",
+    accept:['charge','charged']
+  },
+  {
+    answer:'chief', first:'c',
+    sentence_en:"She became the c[BLANK] of the research department.",
+    ko:"그녀는 연구 부서의 [책임자]가 되었다.",
+    hint_html:"<span class='hint-reveal' data-reveal='cap · captain'>[ ? ]</span> ‘머리 · 우두머리’에서 유래 → 책임자 · 장(長)",
+    accept:['chief','chiefs']
+  },
+  {
+    answer:'enchant', first:'e',
+    sentence_en:"The magical performance e[BLANK](e)d the audience.",
+    ko:"그 마법 같은 공연은 관객들을 [매료시켰다].",
+    hint_html:"<b>in · en</b> ‘안으로’ + <span class='hint-reveal' data-reveal='canto'>[ ? ]</span> ‘노래하다’ → 노래로 유혹하다",
+    accept:['enchant','enchanted','enchants']
+  },
+  {
+    answer:'charge', first:'c',
+    sentence_en:"There is an additional c[BLANK] for late check-out.",
+    ko:"늦은 체크아웃에는 추가 [요금]이 있다.",
+    hint_html:"<span class='hint-reveal' data-reveal='cargo'>[ ? ]</span> ‘화물’에서 유래 → 부담을 싣다 · 부과하다 → 요금",
+    accept:['charge','charges']
+  }
+];
+
 const LESSONS = {
   1:{ meta:LESSON1_META, data:LESSON1_DATA, classify:LESSON1_CLSDATA,
     part01:LESSON1_PART01, part02_pool:LESSON1_PART02_POOL,
     part03_pool:LESSON1_PART03_POOL, reading_passages:LESSON1_READING },
   2:{ meta:LESSON2_META, data:LESSON2_DATA, classify:LESSON2_CLSDATA, part01:LESSON2_PART01,
+    part02_pool:LESSON2_PART02_POOL, part03_pool:LESSON2_PART03_POOL,
     reading_passages:LESSON2_READING }
 };
 const LESSON_COMING = [
@@ -3336,7 +3563,10 @@ function renderPart03(){
             <span class="p01-hint-chev">${p03HintOpen || p03State==='shown' ? '▾' : '▸'}</span>
           </button>
           <div class="p01-hint-body p03-hint-body" onclick="if(event.target.classList.contains('hint-reveal')) p03Reveal(event.target)">
-            ${q.hint_html}
+            ${p03State === 'shown'
+              ? q.hint_html.replace(/<span class='hint-reveal' data-reveal='([^']*)'>\[ \? \]<\/span>/g,
+                  (m, root) => `<span class="hint-reveal revealed"><b class="hint-revealed">${root}</b></span>`)
+              : q.hint_html}
             ${p03State === 'q' ? '<div class="p03-hint-tip">[ ? ] 부분을 클릭하면 어근이 노출됩니다.</div>' : ''}
           </div>
         </div>
