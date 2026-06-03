@@ -447,6 +447,43 @@
   .charge-fig img{display:block;width:100%;height:auto}
   .charge-stack{margin:11px 16px 0;display:flex;flex-direction:column;gap:12px}
   .charge-stack .charge-fig{margin:0}
+  /* 2강 보카트리 - 소리 대비 */
+  .t2-title{font-family:'Fraunces',serif;font-weight:900;font-size:23px;
+    color:var(--ink);line-height:1.3;letter-spacing:-.3px}
+  .t2-sub{font-family:'Gowun Batang',serif;font-size:13px;color:#7a6a52;margin-top:6px}
+  .sv-compare{margin:20px 0 0;display:grid;grid-template-columns:1fr auto 1fr;
+    gap:8px;align-items:stretch}
+  .sv-col{border:1px solid var(--line);border-radius:10px;padding:14px 10px;
+    background:var(--paper);text-align:center}
+  .sv-col-label{font-family:'Fraunces',serif;font-weight:900;font-size:15px}
+  .sv-col-label.br-c{color:var(--prism-p)} .sv-col-label.br-ch{color:var(--prism-f)}
+  .sv-col-tag{font-family:'Gowun Batang',serif;font-size:11px;color:#7a6a52;margin-top:2px}
+  .sv-col-sounds{font-family:'Space Mono',monospace;font-size:12px;margin-top:8px;
+    font-weight:700;letter-spacing:.5px}
+  .sv-col-sounds.br-c{color:var(--prism-p)} .sv-col-sounds.br-ch{color:var(--prism-f)}
+  .sv-words{list-style:none;margin:11px 0 0;padding:0;display:flex;
+    flex-direction:column;gap:7px}
+  .sv-word{font-family:'Fraunces',serif;font-weight:700;font-size:15px}
+  .sv-word.br-c{color:var(--prism-p)} .sv-word.br-ch{color:var(--prism-f)}
+  .sv-vs{display:flex;align-items:center;justify-content:center;
+    font-family:'Space Mono',monospace;font-size:12px;color:var(--gold);font-weight:700}
+  .t2-tbl-tag{margin-top:22px;font-family:'Space Mono',monospace;font-size:11px;
+    letter-spacing:1.5px;color:var(--gold);font-weight:700;text-transform:uppercase}
+  .t2-table{width:100%;border-collapse:collapse;margin-top:11px;
+    border:1px solid var(--line);border-radius:10px;overflow:hidden;table-layout:fixed}
+  .t2-table th{font-family:'Space Mono',monospace;font-size:9.5px;letter-spacing:.2px;
+    font-weight:700;color:#7a6a52;background:var(--paper2);padding:9px 7px;
+    text-align:left;border-bottom:1px solid var(--line);line-height:1.3}
+  .t2-table th:nth-child(1),.t2-table td:nth-child(1){width:24%}
+  .t2-table th:nth-child(2),.t2-table td:nth-child(2){width:24%}
+  .t2-table td{padding:10px 7px;border-bottom:1px solid var(--line);vertical-align:top}
+  .t2-table tr:last-child td{border-bottom:none}
+  .t2-table .t2-c{font-family:'Fraunces',serif;font-weight:700;font-size:12.5px;
+    color:var(--prism-p);line-height:1.3}
+  .t2-table .t2-ch{font-family:'Fraunces',serif;font-weight:700;font-size:12.5px;
+    color:var(--prism-f);line-height:1.3}
+  .t2-table .t2-img{font-family:'Gowun Batang',serif;font-size:11px;color:#5c4e3c;
+    line-height:1.5}
   .ce-row{display:flex;align-items:baseline;gap:9px;padding:11px 14px;
     background:var(--paper);border-bottom:1px solid var(--line)}
   .ce-row:last-child{border-bottom:none}
@@ -575,6 +612,12 @@
   .clf-tts:active{background:var(--gold);border-color:var(--gold);transform:scale(.95)}
   .clf-tts:hover{border-color:var(--gold)}
   .clf-en .ko{display:block;color:#7a6a52;font-size:12px;margin-top:6px;font-style:italic}
+  .clf-ko-blank{font-family:'Fraunces',serif;font-weight:700;font-style:normal;
+    color:var(--gold);background:rgba(184,137,59,.16);padding:0 6px;border-radius:3px;
+    letter-spacing:-1px}
+  .clf-ko-reveal{font-style:normal;font-weight:700;color:var(--ink);
+    background:rgba(184,137,59,.20);padding:0 5px;border-radius:3px;
+    animation:fadeIn .3s ease}
   .clf-question{font-family:'Gowun Batang',serif;font-size:13px;color:var(--ink);
     font-weight:700;margin-top:16px;text-align:center}
   .clf-choices{margin-top:14px;display:flex;flex-direction:column;gap:8px}
@@ -1748,6 +1791,41 @@ const LESSON2_DATA = {
   intro_answer_sub: ': <span class="q-c">C</span> → <span class="q-ch">CH</span> 소리 변화 관계',
   palatal_note: '*언어학에서는 이를 ‘구개음화(Palatalization)’라고 부른다.',
   root_display: '<b class="q-c">Camp</b>us &nbsp;·&nbsp; <b class="q-ch">Champ</b>agne',
+  tree2: {
+    title: 'K → C ↔ CH의 관계',
+    subtitle: '발음의 우아함 vs 거칠음',
+    intro:
+      "일부 사람들은 경상도 억양이나 된소리를 더 거칠고 강한 느낌으로 받아들이기도 한다. " +
+      "마찬가지로 라틴·프랑스 계열 화자들에게 <b>/k/ · /g/ · /sk/</b> 같은 단단한 게르만계 발음은 " +
+      "직선적이고 투박하게 들리기도 했다. 반대로 <b>/ʃ/ · /ʒ/ · /s/</b> 같은 프랑스어 계열의 소리는 " +
+      "부드럽고 미끄러지는 느낌을 준다.",
+    soft: { label:'부드러운 소리', tag:'프랑스어 계열', sounds:'/ʃ/ · /ʒ/ · /s/',
+            words:['champagne','genre','chic'], branch:'ch' },
+    hard: { label:'단단한 소리', tag:'게르만 계열', sounds:'/k/ · /g/ · /sk/',
+            words:['kill','crush','stake'], branch:'c' },
+    pairs: [
+      { c:'cargo',          ch:'charge',        img:'짐을 싣다 → 부담·에너지·책임을 싣다' },
+      { c:'cap / captain',  ch:'chief / chef',  img:'머리(head) → 우두머리' },
+      { c:'capital',        ch:'chapter',       img:'글의 머리 → 장(章)' },
+      { c:'canal',          ch:'channel',       img:'물길 → 통로' },
+      { c:'call',           ch:'challenge',     img:'큰 소리로 부르다 → 맞서 부르다' },
+      { c:'card',           ch:'chart',         img:'종이 → 기록·도표' },
+      { c:'cantata',        ch:'chant',         img:'노래 → 반복적으로 읊조리다' }
+    ],
+    shift:
+      "이러한 흐름 속에서 일부 <b>/k/</b> 계열 소리는 시간이 지나며 " +
+      "<b>[tʃ] → [ʃ]</b> 같은 부드러운 소리로 변화했다.",
+    closing:
+      "이번 레슨에서는 이러한 <b>C → CH</b> 소리 변화와 함께, " +
+      "단어 속에 숨어 있는 역사와 문화의 흐름을 함께 살펴본다."
+  },
+  classify_cats: [
+    { meaning:'요금 · 부과',       sub:'charge a fee',        image:'images/lesson2/cls-1.jpg' },
+    { meaning:'책임 · 담당 · 임무', sub:'be in charge of',     image:'images/lesson2/cls-2.jpg' },
+    { meaning:'비난 · 기소 · 고발', sub:'be charged with',     image:'images/lesson2/cls-3.jpg' },
+    { meaning:'습격 · 돌격',       sub:'charge at the enemy', image:'images/lesson2/cls-4.jpg' },
+    { meaning:'감정·에너지를 채우다', sub:'emotionally charged / charge my phone', image:'images/lesson2/cls-5.jpg' }
+  ],
   lead:
     "하나의 라틴어 <b>campus</b>가 시간이 지나며 두 갈래의 소리로 퍼져나갔다. " +
     "라틴어에 가까운 단어들은 단단한 <b>C[k]</b> 발음을 유지했고 (campus · camp · campaign), " +
@@ -1879,11 +1957,101 @@ const LESSON2_DATA = {
   }
 };
 
+const LESSON2_CLSDATA = [
+  { word:'charge', cat:1, meaning:'요금',
+    en:"The restaurant added a service charge to the bill.",
+    ko:"그 식당은 계산서에 서비스 (요금)을 추가했다.",
+    hint:"떠안기는 부담 → 값 · 요금" },
+  { word:'charge', cat:2, meaning:'책임지고 맡다',
+    en:"She took charge of the project after the manager left.",
+    ko:"매니저가 떠난 후 그녀가 그 프로젝트를 (책임지고 맡았다).",
+    hint:"take charge of → 책임 · 담당을 떠안다" },
+  { word:'charged', cat:4, meaning:'돌격하다',
+    en:"The soldiers charged toward the enemy without hesitation.",
+    ko:"병사들은 망설임 없이 적에게 (돌격)했다.",
+    hint:"힘을 실어 밀고 나아가다 → 돌격 · 습격" },
+  { word:'charged', cat:5, meaning:'감정이 가득 실린',
+    en:"The speech was emotionally charged and moved the audience deeply.",
+    ko:"그 연설은 감정이 강하게 (실려 있어서) 청중들을 깊이 감동시켰다.",
+    hint:"마음에 감정을 가득 채우다 → 감정이 실린" },
+  { word:'charge', cat:5, meaning:'충전하다',
+    en:"Please charge your laptop before the meeting starts.",
+    ko:"회의가 시작되기 전에 노트북을 (충전)하세요.",
+    hint:"에너지를 가득 채우다 → 충전" },
+  { word:'charge', cat:3, meaning:'비난 · 혐의',
+    en:"He denied the charge that he had lied to the public.",
+    ko:"그는 대중에게 거짓말했다는 (비난/혐의)를 부인했다.",
+    hint:"누군가에게 씌워진 부담스러운 것 → 비난 · 혐의" },
+  { word:'charge', cat:2, meaning:'담당하다',
+    en:"The nurse was put in charge of the emergency room that night.",
+    ko:"그날 밤 그 간호사가 응급실을 (담당하게 되었다).",
+    hint:"in charge of → 책임 · 담당을 맡은 상태" },
+  { word:'discharged', cat:5, meaning:'방전되다',
+    en:"The battery slowly discharged during the long trip.",
+    ko:"긴 여행 동안 배터리가 천천히 (방전되었다).",
+    hint:"dis(떨어져 나온) + charge(채움) → 채워진 에너지가 빠져나가다 → 방전" },
+  { word:'charges', cat:3, meaning:'혐의',
+    en:"The lawyer tried to get the criminal charges dropped.",
+    ko:"변호사는 형사 (혐의)가 기각되도록 노력했다.",
+    hint:"씌워진 부담 → (형사) 혐의" },
+  { word:'charges', cat:2, meaning:'보호 대상 아이들',
+    en:"Parents are legally responsible for the safety of their young charges.",
+    ko:"부모는 어린 (보호 대상 아이들)의 안전에 대해 법적 책임이 있다.",
+    hint:"돌봄을 떠맡은 대상 → 보살피는 아이 · 부양가족" }
+];
+
+const LESSON2_PART01 = [
+  {w:'charge', en:"There's no extra charge for children under 5.",
+   ko:"5세 이하 어린이는 추가 (요금)이 없다.",
+   hint:"떠안기는 부담",
+   choices:['요금','규칙','정원','대기'], answer:0},
+  {w:'charged', en:"She was charged with looking after the guests.",
+   ko:"그녀는 손님을 돌보는 일을 (맡았다).",
+   hint:"짐 · 부담을 지우다",
+   choices:['거절했다','맡았다(책임졌다)','잊었다','구경했다'], answer:1},
+  {w:'charge', en:"The teacher is in charge of the class.",
+   ko:"그 선생님이 그 반을 (책임지고) 있다.",
+   hint:"<b>in charge of</b> : 짐 · 부담 안에 있는 상태",
+   choices:['책임','방문','평가','통합'], answer:0},
+  {w:'charge', en:"He was arrested on a charge of theft.",
+   ko:"그는 절도 (혐의)로 체포됐다.",
+   hint:"누군가에게 씌워진 부담스럽고 무거운 것",
+   choices:['혐의','벌금','경력','증거'], answer:0},
+  {w:'charges', en:"All the parents of children who later become successful musicians were their charges' great friends and allies from earliest childhood.",
+   ko:"훗날 훌륭한 음악가가 된 아이들의 부모는, 어릴 때부터 그 (아이들/부양가족)의 든든한 친구이자 응원자였다.",
+   hint:"짊어지고 책임지는 무언가",
+   choices:['아이들(부양가족)','선생님','경쟁자','후원자'], answer:0},
+  {w:'discharged', en:"The patient was discharged from the hospital after a full recovery.",
+   ko:"환자는 완전히 회복한 후 병원에서 (퇴원)했다.",
+   hint:"<b>dis</b>(떨어져 나온) + <b>charge</b>(싣다) → 짐을 내리다",
+   choices:['입원','퇴원','검진','수술'], answer:1},
+  {w:'discharge', en:"Factories are not allowed to discharge toxic waste into the river.",
+   ko:"공장들은 독성 폐기물을 강에 (방류)해서는 안 된다.",
+   hint:"<b>dis</b>(떨어져 나온) + <b>charge</b>(싣다) → 밖으로 쏟아내다",
+   choices:['저장','방류','정화','수입'], answer:1},
+  {w:'discharged', en:"He discharged his responsibilities as a team leader very well.",
+   ko:"그는 팀장으로서의 책임을 훌륭히 (수행)했다.",
+   hint:"<b>dis</b>(떨어져 나온) + <b>charge</b>(짐 · 의무) → 의무를 다하다",
+   choices:['회피','수행','위임','중단'], answer:1},
+  {w:'carrier', en:"Media is a carrier of ideology that shapes public opinion.",
+   ko:"미디어는 대중의 여론을 형성하는 이념의 (전달자)다.",
+   hint:"<b>carry</b>(나르다) + <b>-er</b> → 나르는 것",
+   choices:['전달자','파괴자','감시자','소비자'], answer:0},
+  {w:'carrier', en:"FedEx is a major international carrier.",
+   ko:"FedEx는 주요 국제 (운송업체)이다.",
+   hint:"<b>carry</b>(나르다) + <b>-er</b> → 짐을 나르는 매개체",
+   choices:['운송업체','제조사','투자사','중개인'], answer:0},
+  {w:'carrier', en:"She is a carrier of the flu virus but shows no symptoms.",
+   ko:"그녀는 증상은 없지만 독감 바이러스를 옮기는 (보균자)다.",
+   hint:"<b>carry</b>(나르다) + <b>-er</b> → 무언가를 나르는 매개체",
+   choices:['보균자','치료자','환자','연구자'], answer:0}
+];
+
 const LESSONS = {
   1:{ meta:LESSON1_META, data:LESSON1_DATA, classify:LESSON1_CLSDATA,
     part01:LESSON1_PART01, part02_pool:LESSON1_PART02_POOL,
     part03_pool:LESSON1_PART03_POOL, reading_passages:LESSON1_READING },
-  2:{ meta:LESSON2_META, data:LESSON2_DATA }
+  2:{ meta:LESSON2_META, data:LESSON2_DATA, classify:LESSON2_CLSDATA, part01:LESSON2_PART01 }
 };
 const LESSON_COMING = [
   { no:3, pair:'T ↔ TH', meaning:'tres / three',  ko:'셋' },
@@ -2173,9 +2341,56 @@ function enterBody(){
 /* ============================================================
  *  어원 트리 (3갈래)
  * ============================================================ */
+function showTree2(t){
+  const sideHtml = (s) => {
+    const br = s.branch === 'c' ? 'br-c' : 'br-ch';
+    const wordsHtml = s.words.map(w => `<li class="sv-word ${br}">${w}</li>`).join('');
+    return `
+      <div class="sv-col">
+        <div class="sv-col-label ${br}">${s.label}</div>
+        <div class="sv-col-tag">${s.tag}</div>
+        <div class="sv-col-sounds ${br}">${s.sounds}</div>
+        <ul class="sv-words">${wordsHtml}</ul>
+      </div>`;
+  };
+  const tableHtml = (t.pairs && t.pairs.length) ? `
+      <div class="t2-tbl-tag">C ↔ CH 단어 짝</div>
+      <table class="t2-table">
+        <thead><tr><th>단단한 C / K 계열</th><th>부드러운 CH 계열</th><th>핵심 이미지</th></tr></thead>
+        <tbody>
+          ${t.pairs.map(p => `<tr>
+            <td class="t2-c">${p.c}</td>
+            <td class="t2-ch">${p.ch}</td>
+            <td class="t2-img">${p.img}</td>
+          </tr>`).join('')}
+        </tbody>
+      </table>` : '';
+  document.getElementById('treeBody').innerHTML = `
+    <div style="padding:20px 16px">
+      <div class="clf-head" style="margin-bottom:8px">
+        <span class="tag">VOCATREE</span>
+      </div>
+      <div class="t2-title">${t.title}</div>
+      <div class="t2-sub">: ${t.subtitle}</div>
+      <div class="cover-lead" style="margin:18px 0 0">${t.intro}</div>
+      <div class="sv-compare">
+        ${sideHtml(t.soft)}
+        <div class="sv-vs">vs</div>
+        ${sideHtml(t.hard)}
+      </div>
+      <div class="voca-bridge" style="margin:18px 0 0">${t.shift}</div>
+      ${tableHtml}
+      <div class="cover-closing" style="margin:20px 0 0;background:var(--root)">
+        <div class="cc-tag">THIS LESSON</div>
+        <div class="cc-body" style="margin-top:8px">${t.closing}</div>
+      </div>
+      <button class="tree-cta" onclick="goClassify()">의미 분류 퀴즈로 ›</button>
+    </div>`;
+}
 function showTree(){
   const L = LESSONS[currentLessonNo];
   const d = L.data;
+  if(d.tree2){ showTree2(d.tree2); go('tree'); return; }
   if(!d.word_tree){
     document.getElementById('treeBody').innerHTML =
       `<div class="body-pending">
@@ -2267,9 +2482,25 @@ function showTree(){
 /* ============================================================
  *  의미 분류 퀴즈
  * ============================================================ */
-let clfList = [];     // 단어 키 배열
+let clfList = [];     // 정규화된 문항 배열
 let clfIdx = 0;
 let clfState = 'q';   // 'q' | 'shown'
+function clfBuildItems(L){
+  const C = L.classify;
+  if(Array.isArray(C)){
+    return C.map(o => ({word:o.word, meaning:o.meaning, en:o.en, ko:o.ko, hint:o.hint, ans:o.cat}));
+  }
+  return Object.keys(C).map(k => {
+    const [meaning, en, ko, hint, ans] = C[k];
+    return {word:k, meaning, en, ko, hint, ans};
+  });
+}
+function clfCats(L){
+  if(L.data && L.data.classify_cats) return L.data.classify_cats;
+  return (L.data.word_tree || []).map(g => ({
+    meaning:g.meaning, sub:`${g.pairP.word} / ${g.pairF.word}`, image:g.quizImage
+  }));
+}
 function goClassify(){
   const L = LESSONS[currentLessonNo];
   if(!L.classify){
@@ -2280,8 +2511,8 @@ function goClassify(){
     go('classify');
     return;
   }
-  clfList = Object.keys(L.classify);
-  // Fisher-Yates 셔플 - 매번 시작할 때 순서를 섞음
+  clfList = clfBuildItems(L);
+  // Fisher-Yates 셔플
   for(let i = clfList.length - 1; i > 0; i--){
     const j = Math.floor(Math.random() * (i + 1));
     [clfList[i], clfList[j]] = [clfList[j], clfList[i]];
@@ -2300,7 +2531,7 @@ function renderClassify(){
       <div class="p01-result" style="margin:30px 16px">
         <div class="res-h">분류 퀴즈 완료!</div>
         <div class="res-score">${total} / ${total}</div>
-        <div class="res-msg">10개 단어 모두 의미 갈래를 익혔습니다.<br>이제 실전 문제로 점검해볼까요?</div>
+        <div class="res-msg">${total}개 문장의 의미 갈래를 모두 익혔습니다.<br>이제 실전 문제로 점검해볼까요?</div>
         <div class="res-btns">
           <button class="b-again" onclick="goClassify()">다시 풀기</button>
           <button class="b-back" onclick="quizMenu()">실전 문제 ›</button>
@@ -2308,10 +2539,9 @@ function renderClassify(){
       </div>`;
     return;
   }
-  const wordKey = clfList[clfIdx];
-  const w = L.classify[wordKey];
-  const [meaning, exEn, exKo, hint, ans] = w;
-  const d = L.data;
+  const it = clfList[clfIdx];
+  const wordKey = it.word, meaning = it.meaning, exEn = it.en, exKo = it.ko, hint = it.hint, ans = it.ans;
+  const cats = clfCats(L);
 
   // 어근 강조 헬퍼: ple/pla/pli/pl을 em으로 감싸 (가장 긴 매치 우선)
   const highlightRoot = (text) => {
@@ -2339,18 +2569,18 @@ function renderClassify(){
     `<u class="ex-target">${highlightRoot(m)}</u>`
   );
 
-  // 선택지: 3갈래 의미 (이미지 + 텍스트)
-  const choicesHtml = d.word_tree.map((g, i) => {
+  // 선택지: 의미 카테고리 (이미지 + 텍스트)
+  const choicesHtml = cats.map((g, i) => {
     const n = i + 1;
     let extra = '';
     if(clfState === 'shown' && n === ans) extra = ' ok';
-    const imgHtml = g.quizImage ? `<img class="clf-choice-img" src="${g.quizImage}" alt="" loading="lazy">` : '';
+    const imgHtml = g.image ? `<img class="clf-choice-img" src="${g.image}" alt="" loading="lazy">` : '';
     return `
       <button class="clf-choice${extra}" onclick="clfPick(${n})" ${clfState==='shown'?'disabled':''}>
         ${imgHtml}
         <span class="clf-choice-body">
           <span class="ch-no">(${n})</span><span class="clf-choice-mean">${g.meaning}</span>
-          <span class="clf-choice-sub">${g.pairP.word} / ${g.pairF.word}</span>
+          <span class="clf-choice-sub">${g.sub || ''}</span>
         </span>
       </button>`;
   }).join('');
@@ -2367,17 +2597,21 @@ function renderClassify(){
       </div>
       <div class="clf-card">
         <div class="clf-word">${wordHL}</div>
-        <div class="clf-meaning">${meaning}</div>
+        ${Array.isArray(L.classify) ? '' : `<div class="clf-meaning">${meaning}</div>`}
         <div class="clf-en">
           <div class="clf-en-row">
             <div class="clf-en-text">${exEnHL}</div>
             <button class="clf-tts" onclick="speakSentence('${ttsText}')" aria-label="예문 읽어주기" title="예문 읽어주기">🔊</button>
           </div>
-          <span class="ko">${exKo}</span>
+          <span class="ko">${Array.isArray(L.classify)
+            ? exKo.replace(/\(([^)]+)\)/, (m, inner) => clfState === 'shown'
+                ? `<span class="clf-ko-reveal">${inner}</span>`
+                : `<span class="clf-ko-blank">[_____]</span>`)
+            : exKo}</span>
         </div>
         <div class="clf-choices">${choicesHtml}</div>
         <div class="clf-hint${clfState==='shown'?' on':''}">
-          <b>정답:</b> ${ans}번 · ${d.word_tree[ans-1].meaning}<br>
+          <b>정답:</b> ${ans}번 · ${cats[ans-1].meaning}<br>
           <b>어원:</b> ${hint}
         </div>
         ${clfState==='shown'
@@ -2406,9 +2640,7 @@ function clfPick(n){
   clfState = 'shown';
   renderClassify();
   // 정답/오답 표시 (선택된 버튼)
-  const L = LESSONS[currentLessonNo];
-  const w = L.classify[clfList[clfIdx]];
-  const ans = w[4];
+  const ans = clfList[clfIdx].ans;
   const btns = document.querySelectorAll('.clf-choice');
   btns.forEach((b, i) => {
     const num = i + 1;
@@ -2444,27 +2676,39 @@ function quizMenu(){
       ? `<div class="part-status">최고 ${pct}%</div>`
       : `<div class="part-status">시작하기 ›</div>`;
   const L = LESSONS[currentLessonNo];
+  const p01Count = (L.part01 || []).length;
   const p02Count = (L.part02_pool || []).length;
   const p03Count = (L.part03_pool || []).length;
-  document.getElementById('quizMenu').innerHTML = `
-    <button class="part-card ready" onclick="startPart01()">
-      <div class="part-no">PART 01</div>
-      <div class="part-title">어휘 추리력</div>
-      <div class="part-desc">어원 힌트로 단어 뜻을 4지선다로 추론합니다. (10문항)</div>
-      ${statusOf(p01Pct)}
-    </button>
+  const lockedCard = (no,title,desc) => `
+    <div class="part-card locked">
+      <div class="part-no">${no}</div>
+      <div class="part-title">${title}</div>
+      <div class="part-desc">${desc}</div>
+      <div class="part-status">준비 중</div>
+    </div>`;
+  const part02Card = p02Count ? `
     <button class="part-card ready" onclick="startPart02()">
       <div class="part-no">PART 02</div>
       <div class="part-title">정의 매칭</div>
       <div class="part-desc">영어 정의 5지선다로 단어의 정확한 의미를 찾습니다. (${Math.min(10, p02Count)}문항)</div>
       ${statusOf(p02Pct)}
-    </button>
+    </button>` : lockedCard('PART 02','정의 매칭','곧 추가됩니다.');
+  const part03Card = p03Count ? `
     <button class="part-card ready" onclick="startPart03()">
       <div class="part-no">PART 03</div>
       <div class="part-title">빈칸 채우기</div>
       <div class="part-desc">예문 빈칸에 학습한 단어를 직접 입력합니다. (${Math.min(10, p03Count)}문항)</div>
       ${statusOf(p03Pct)}
-    </button>`;
+    </button>` : lockedCard('PART 03','빈칸 채우기','곧 추가됩니다.');
+  document.getElementById('quizMenu').innerHTML = `
+    <button class="part-card ready" onclick="startPart01()">
+      <div class="part-no">PART 01</div>
+      <div class="part-title">어휘 추리력</div>
+      <div class="part-desc">어원 힌트로 단어 뜻을 4지선다로 추론합니다. (${p01Count}문항)</div>
+      ${statusOf(p01Pct)}
+    </button>
+    ${part02Card}
+    ${part03Card}`;
   go('quiz');
 }
 
