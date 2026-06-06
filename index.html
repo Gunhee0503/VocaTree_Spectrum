@@ -334,6 +334,9 @@
     color:#9a8a72;margin-top:10px;line-height:1.6;font-style:italic}
   .cover-root .q-c{color:var(--prism-p);font-weight:900}
   .cover-root .q-ch{color:var(--prism-f);font-weight:900}
+  .cover-q-img{margin:16px 26px 4px;border-radius:10px;overflow:hidden;
+    border:1px solid var(--line);box-shadow:0 1px 4px rgba(0,0,0,.06)}
+  .cover-q-img img{display:block;width:100%;height:auto}
   .cover-q-rule{width:40px;height:3px;background:var(--gold);border-radius:2px;
     margin:20px auto 4px}
   .cover-root-fig{margin:18px 0 4px;border-radius:10px;overflow:hidden;
@@ -439,6 +442,24 @@
   .rp-words{margin:14px 14px 16px;display:grid;grid-template-columns:1fr 1fr;gap:10px}
   .rp-family{margin:16px 14px 0;border-radius:10px;overflow:hidden;border:1px solid var(--line)}
   .rp-family img{display:block;width:100%;height:auto}
+  .rp-ash{margin:14px 14px 16px;padding:13px 14px;border-radius:10px;
+    background:var(--paper2);border:1px solid var(--line)}
+  .rp-ash-title{font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.4px;
+    color:var(--gold);font-weight:700;margin-bottom:8px;text-align:center}
+  .rp-ash-row{display:flex;gap:11px;align-items:center;padding:8px 0;border-top:1px solid var(--line)}
+  .rp-ash-row:first-of-type{border-top:none}
+  .rp-ash-sw{flex:0 0 auto;width:44px;height:40px;border-radius:7px;
+    border:1px solid rgba(0,0,0,.12);display:flex;align-items:flex-end;
+    justify-content:center;overflow:hidden}
+  .rp-ash-svg{width:100%;height:100%;display:block}
+  .sw-black{background:#f1ece1}
+  .sw-white{background:#ddd6c6}
+  .sw-gray{background:#f1ece1}
+  .rp-ash-body{display:flex;flex-direction:column;gap:2px;min-width:0}
+  .rp-ash-color{font-family:'Gowun Batang',serif;font-weight:700;color:var(--ink);font-size:13px}
+  .rp-ash-color em{font-style:normal;color:var(--prism-p);font-family:'Fraunces',serif;
+    font-weight:900;margin-left:5px}
+  .rp-ash-words{font-family:'Gowun Batang',serif;font-size:11.5px;color:#6f5f49;line-height:1.5}
   .rp-col{border-radius:10px;padding:11px 11px 12px;border:1px solid var(--line)}
   .rp-col.b-col{background:var(--prism-p-soft);border-color:var(--prism-p-line)}
   .rp-col.f-col{background:var(--prism-f-soft);border-color:var(--prism-f-line)}
@@ -520,6 +541,39 @@
   .t2-title{font-family:'Fraunces',serif;font-weight:900;font-size:23px;
     color:var(--ink);line-height:1.3;letter-spacing:-.3px}
   .t2-sub{font-family:'Gowun Batang',serif;font-size:13px;color:#7a6a52;margin-top:6px}
+  .bfp-legend{display:flex;gap:8px;justify-content:center;margin:18px 0 4px;flex-wrap:wrap}
+  .bfp-leg{font-family:'Space Mono',monospace;font-size:11px;padding:4px 10px;
+    border-radius:20px;border:1px solid var(--line);background:var(--paper)}
+  .bfp-leg.bfp-b{color:var(--prism-p);border-color:var(--prism-p-line)}
+  .bfp-leg.bfp-f{color:var(--prism-f);border-color:var(--prism-f-line)}
+  .bfp-leg.bfp-ph{color:#9a7635;border-color:#d8c39a}
+  .bfp-list{margin-top:12px}
+  .bfp-row{border:1px solid var(--line);border-radius:12px;margin-bottom:12px;
+    overflow:hidden;background:var(--paper)}
+  .bfp-head{padding:10px 14px;background:var(--paper2);border-bottom:1px solid var(--line);
+    display:flex;align-items:baseline;gap:9px;flex-wrap:wrap}
+  .bfp-root{font-family:'Space Mono',monospace;font-size:14px;font-weight:700;color:var(--ink)}
+  .bfp-gloss{font-family:'Gowun Batang',serif;font-size:12px;color:var(--gold);font-weight:700}
+  .bfp-cells{display:grid;grid-template-columns:1fr 1fr 1fr}
+  .bfp-pair{padding:13px 14px 12px;display:flex;align-items:center;justify-content:center;
+    gap:12px;border-bottom:1px solid var(--line);background:var(--paper)}
+  .bfp-pair .pf-p{font-family:'Fraunces',serif;font-weight:900;font-size:27px;
+    color:var(--prism-p);letter-spacing:.3px}
+  .bfp-pair .pf-f{font-family:'Fraunces',serif;font-weight:900;font-size:27px;
+    color:var(--prism-f);letter-spacing:.3px}
+  .bfp-pair-arrow{font-family:'Fraunces',serif;font-size:18px;color:var(--gold);font-weight:700}
+  .bfp-cell{padding:10px 9px 12px;border-right:1px solid var(--line);
+    display:flex;flex-direction:column;gap:5px}
+  .bfp-cell:last-child{border-right:none}
+  .bfp-lang{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:.3px;
+    font-weight:700;text-transform:uppercase}
+  .bfp-cell.bfp-b .bfp-lang{color:var(--prism-p)}
+  .bfp-cell.bfp-f .bfp-lang{color:var(--prism-f)}
+  .bfp-cell.bfp-ph .bfp-lang{color:#9a7635}
+  .bfp-words{font-family:'Fraunces',serif;font-weight:700;font-size:12.5px;line-height:1.45}
+  .bfp-cell.bfp-b .bfp-words{color:var(--prism-p)}
+  .bfp-cell.bfp-f .bfp-words{color:var(--prism-f)}
+  .bfp-cell.bfp-ph .bfp-words{color:#8f6c30}
   .sv-compare{margin:20px 0 0;display:grid;grid-template-columns:1fr auto 1fr;
     gap:8px;align-items:stretch}
   .sv-col{border:1px solid var(--line);border-radius:10px;padding:14px 10px;
@@ -714,6 +768,11 @@
     line-height:1.75;display:none}
   .clf-hint.on{display:block;animation:fadeIn .3s ease}
   .clf-hint b{color:var(--ink);font-weight:700}
+  .clf-verdict{margin-top:14px;padding:11px 14px;border-radius:8px;text-align:center;
+    font-family:'Fraunces',serif;font-weight:900;font-size:17px;
+    animation:fadeIn .3s ease}
+  .clf-verdict.ok{background:rgba(91,140,90,.15);color:var(--ok);border:1px solid var(--ok)}
+  .clf-verdict.bad{background:rgba(156,58,46,.10);color:var(--bad);border:1px solid var(--bad)}
   @keyframes fadeIn{from{opacity:0}to{opacity:1}}
   /* 어원 해설 안의 보조 이미지 비교 */
   .hint-imgs{margin-top:10px;display:grid;grid-template-columns:1fr 1fr;gap:10px}
@@ -912,6 +971,10 @@
     color:var(--ink)}
   .p03-result-msg s{opacity:.6}
   /* Part 01 동작 화면 - clf 거의 동일하게 재사용 */
+  .p01-blank{background:rgba(184,137,59,.20);border-radius:5px;padding:1px 7px;
+    color:#9a7e4e;font-weight:700;letter-spacing:.5px}
+  .p01-fill{background:rgba(184,137,59,.28);border-radius:5px;padding:1px 7px;
+    color:var(--ink);font-weight:700}
   .p01-hint-wrap{margin-top:14px}
   .p01-hint-toggle{display:flex;align-items:center;gap:6px;width:100%;
     background:none;border:1px dashed var(--line);border-radius:6px;
@@ -2402,17 +2465,42 @@ const LESSON3_DATA = {
   course: '보카트리 Spectrum', lesson: 3,
   pair: { p: 'B', f: 'F', law: "Grimm's Law" },
   pair_ko: '게르만 b vs 라틴 f',
-  cls_stems: ['fr','fl','fer','br','bl'],
+  part01_pick: 15,
+  cls_stems: ['break','frag','frac','fer','flam','blaz','ble','bl','br','fr','fl'],
   classify_cats: [
     { meaning:'깨다 · 부수다 · 조각내다', sub:'*bʰreg- · break / frag-', image:'images/lesson3/cls-break.jpg' },
-    { meaning:'나르다 · 가져가다 · 낳다', sub:'*bʰer- · bear / fer-',     image:'images/lesson3/cls-bear.jpg' },
-    { meaning:'타다 · 빛나다 · 재·색',   sub:'*bʰle- · blaze / flame',   image:'images/lesson3/cls-blaze.jpg' }
+    { meaning:'(생각·정보·생명 등을) 나르다, 가져가다', sub:'*bʰer- · bear / fer-', image:'images/lesson3/cls-bear.jpg' },
+    { meaning:'불꽃처럼 타오르다, 타버린 재',   sub:'*bʰle- · blaze / flame',   image:'images/lesson3/cls-blaze.jpg' }
   ],
+  bfp_table: {
+    title: '하나의 소리, 세 갈래',
+    subtitle: '*bʰ → 게르만 b · 라틴 f · 그리스 ph',
+    intro: "아주 오래된 소리 <b>*bʰ</b>는 세 갈래로 갈라졌다 — 게르만어에선 <b>b</b>, 라틴어에선 어두 <b>f</b>, 그리스어에선 <b>ph</b>. " +
+           "그래서 <b>brother · frater · phratry</b>처럼, 한 뿌리가 세 언어에서 b·f·ph로 나타난다. " +
+           "단어의 첫소리만 봐도 어느 길로 들어온 말인지 짐작할 수 있다.",
+    rows: [
+      { root:'*bʰrater-', gloss:'형제', pair:{b:'brother',f:'frater'},
+        b:'brother', f:'frater(nal)', ph:'phratry' },
+      { root:'*bʰreg-', gloss:'부수다', pair:{b:'break',f:'frag'},
+        b:'break · breach', f:'fragile · fragment · fraction', ph:'—' },
+      { root:'*bʰer-', gloss:'나르다 · (정보·소리·에너지 등을) 가져가다', pair:{b:'bear',f:'fer'},
+        b:'bear · born', f:'transfer · fertile', ph:'metaphor · phosphorus' },
+      { root:'*bʰle-', gloss:'타오르다 · 빛나다', pair:{b:'bla',f:'fla'},
+        b:'blaze · ablaze', f:'flame · inflame · inflammation', ph:'phlegm' },
+      { root:'*bʰā- (1)', gloss:'빛나다 · 보이다', pair:{b:'bea · ba',f:'fa'},
+        b:'beacon · banner', f:'fantasy', ph:'photo · phantom · phase' },
+      { root:'*bʰā- (2)', gloss:'말하다', pair:{b:'ba',f:'fa'},
+        b:'ban', f:'fame · fable · infant', ph:'phone · prophet' }
+    ],
+    closing: "<b>b · f · ph</b>는 모두 한 소리 <b>*bʰ</b>의 세 얼굴이다. " +
+             "토박이말은 b로, 라틴 차용어는 f로, 그리스 학술어는 ph로 — 첫소리가 단어의 출신을 알려준다."
+  },
   intro_question:
     '왜 <span class="q-c">break</span>와 <span class="q-ch">fragile</span>은<br>' +
     '철자도 발음도 전혀 다른데<br>같은 ‘깨짐’을 품고 있을까?',
   intro_answer_sub:
     '딱 끊어지는 <span class="q-c">B</span> 소리와 금이 가듯 갈라지는 <span class="q-ch">F</span> 소리',
+  intro_image: 'images/lesson3/l3-fragile-label.jpg',
   palatal_note:
     '*아주 오래된 소리 *bʰ가 게르만어에선 <b>b</b>로, 라틴어에선 어두에서 <b>f</b>로 갈라졌다 — 그림의 법칙(Grimm’s Law).',
   lead:
@@ -2462,8 +2550,7 @@ const LESSON3_DATA = {
       pronounce: '<b class="pf-p">Bear</b>와 <b class="pf-f">Fer</b>를 직접 발음해보고 공통점을 느껴보세요.',
       b_side: { side:'b', tag:'B · 게르만', words:[
         { en:'bear', ko:'나르다 · (아이를) 낳다 · 견디다' },
-        { en:'born', ko:'태어난' },
-        { en:'burden', ko:'짐 · 부담' }
+        { en:'born', ko:'태어난' }
       ]},
       f_side: { side:'f', tag:'F · 라틴', words:[
         { en:'transfer', ko:'옮기다 · 나르다' },
@@ -2488,14 +2575,22 @@ const LESSON3_DATA = {
         "게르만은 <b>b</b>로, 라틴은 <b>f</b>로 — 같은 불꽃이 두 소리로 나뉘었다.",
       pronounce: '<b class="pf-p">Blaze</b>와 <b class="pf-f">Flame</b>을 직접 발음해보고 공통점을 느껴보세요.',
       b_side: { side:'b', tag:'B · 게르만', words:[
-        { en:'blaze', ko:'맹렬히 타오르다' },
-        { en:'black', ko:'(원래 ‘타서 그을린’) 검은' }
+        { en:'blaze', ko:'맹렬히 타오르는 불꽃' },
+        { en:'burn', ko:'태우다 · 불타다' }
       ]},
       f_side: { side:'f', tag:'F · 라틴', words:[
         { en:'flame', ko:'불꽃' },
         { en:'flammable', ko:'불붙기 쉬운' },
         { en:'inflame', ko:'불붙이다 · 격분시키다' }
-      ]}
+      ]},
+      ash_box: {
+        title: '*bʰle- · 불에 타고 남은 재의 색',
+        groups: [
+          { swatch:'black', color:'검은색 재', en:'black', words:'black 검은색 · blacken 검게 만들다' },
+          { swatch:'white', color:'하얀색 재', en:'bleach · blank · blanc', words:'bleach 표백하다 · blank 빈칸·비어 있는 · blanc 흰색(프랑스어)' },
+          { swatch:'gray',  color:'회색 재', en:'bleak', words:'bleak 잿빛의 · 황폐한 · 우울한' }
+        ]
+      }
     }
   ],
   closing: {
@@ -2559,6 +2654,348 @@ const LESSON3_CLSDATA = {
     "*bʰle-(빛나다→타고 남은 잿빛) → <b>bl</b>eak", 3]
 };
 
+/* Part 01 — 어휘 추리력 (4지선다, 20문항 중 랜덤 15) */
+const LESSON3_PART01 = [
+  { w:'bear', en:"The pain was almost more than he could bear.",
+    ko:"통증이 그가 거의 (견딜) 수 없을 정도였다.",
+    hint:"<b>bear · fer</b> 짊어지고 나르다",
+    choices:['느끼다','견디다','피하다','잊다'], answer:1 },
+  { w:'breakthrough', en:"Scientists made a major breakthrough in cancer research.",
+    ko:"과학자들은 암 연구에서 중대한 (돌파구)를 마련했다.",
+    hint:"<b>break</b>(깨다) + through(뚫고) → 벽을 깨다, 뚫다",
+    choices:['교착상태','토대','돌파구 · 큰 진전','논쟁'], answer:2 },
+  { w:'bleached', en:"His hair was bleached by the sun.",
+    ko:"그의 머리는 햇빛에 색이 (바래) 있었다.",
+    hint:"<b>*bʰle-</b>(불에 타다) → 하얀 재가 되다",
+    choices:['반사하다','녹다','바래다','노출되다'], answer:2 },
+  { w:'fragment', en:"He found a fragment of the ancient pottery buried in the ground.",
+    ko:"그는 땅 속에 묻혀 있던 고대 도자기의 (한 조각)을 발견했다.",
+    hint:"<b>frag</b>(break, 부수다)",
+    choices:['전체','흔적','유물','한 조각 · 파편'], answer:3 },
+  { w:'fertile', en:"Her fertile imagination could produce amazing stories and ideas.",
+    ko:"그녀의 (풍부한) 상상력은 놀라운 이야기와 아이디어를 만들어냈다.",
+    hint:"<b>fer · bear</b> 열매를 가지고 오는",
+    choices:['빈약한','풍부한','창의적인','독특한'], answer:1 },
+  { w:'refer', en:"Please refer to page 10 for more details.",
+    ko:"자세한 내용은 10페이지를 (참조하세요).",
+    hint:"re(다시) + <b>fer</b>(가져가다) → ~로 되돌아가다",
+    choices:['작성하다','참조하다','상기 · 기억하다','연구하다'], answer:1 },
+  { w:'suffer', en:"Thousands of people suffer from this disease every year.",
+    ko:"매년 수천 명이 이 병으로 (고통받는다).",
+    hint:"suf(아래) + <b>fer</b>(짊어지다) → 아래에서 견디다",
+    choices:['회복하다','고통받다','벗어나다','죽다'], answer:1 },
+  { w:'transfer', en:"He decided to transfer to a different university.",
+    ko:"그는 다른 대학으로 (옮기기로) 결정했다.",
+    hint:"trans(이동, 옮기다) + <b>fer</b>(나르다)",
+    choices:['남다','옮기다','졸업하다','지원하다'], answer:1 },
+  { w:'bore', en:"She bore the responsibility for most of the changes.",
+    ko:"그녀가 그 변경 작업 대부분에 대한 책임을 (떠맡았다).",
+    hint:"<b>bear · fer</b> 짊어지고 나르다 &nbsp;※ 과거형 bore",
+    choices:['떠맡다','회피했다','나눴다','체크하다'], answer:0 },
+  { w:'vociferous', en:"The crowd was vociferous in its protest against the new law.",
+    ko:"새 법에 반대하는 군중은 (목소리 높여 외쳤다).",
+    hint:"voice(소리) + <b>fer</b>(나르다) → 소리를 나르다",
+    choices:['침묵했다','목소리 높여 외치다','흩어졌다','저항하다'], answer:1 },
+  { w:'infer', en:"From his expression, I could infer that something was wrong.",
+    ko:"그의 표정에서 나는 무언가 잘못되었다고 (추론할) 수 있었다.",
+    hint:"in(안으로) + <b>fer</b>(나르다) → 속에 있는 내용을 가져오다",
+    choices:['추론하다','증명하다','말하다','확신하다'], answer:0 },
+  { w:'blank', en:"Please fill in the blank with the correct word.",
+    ko:"알맞은 단어로 (빈칸)을 채우세요.",
+    hint:"<b>*bʰle-</b>(불에 타다) → 하얗게 비어 있는",
+    choices:['빈칸','정답','문장','제목'], answer:0 },
+  { w:'bleak', en:"The future looked bleak after the company lost its biggest client.",
+    ko:"가장 큰 고객을 잃은 후 회사의 미래는 (암울해) 보였다.",
+    hint:"<b>*bʰle-</b>(불에 타다) → 회색 재가 되다",
+    choices:['밝은','암울한','불안정한','분주한'], answer:1 },
+  { w:'breach', en:"The company was sued for a breach of contract.",
+    ko:"그 회사는 계약 (위반)으로 고소당했다.",
+    hint:"<b>break · frag</b>(부서지다 · 깨다) → 약속을 깸",
+    choices:['이행','위반','갱신','연장'], answer:1 },
+  { w:'fragile', en:"Be careful with that vase; it's very fragile and could break easily.",
+    ko:"그 꽃병은 매우 (부서지기 쉽고) 쉽게 부러질 수 있으니 조심하세요.",
+    hint:"<b>break · frag</b>(부서지다)",
+    choices:['튼튼한','섬세한','부서지기 쉬운','민감한'], answer:2 },
+  { w:'breakout', en:"There was a breakout of flu at the school last winter.",
+    ko:"지난겨울 그 학교에서 독감의 (발생 · 발발)이 있었다.",
+    hint:"<b>break</b>(깨다) + out(밖으로) → 갑자기 깨고 나오다",
+    choices:['예방','발생 · 발발','치료','감소'], answer:1 },
+  { w:'flame', en:"A single flame flickered in the dark room.",
+    ko:"어두운 방 안에서 하나의 (불꽃)이 깜빡였다.",
+    hint:"<b>blaze · flam</b>(불)",
+    choices:['그림자','불꽃','연기','소리'], answer:1 },
+  { w:'fracture', en:"The X-ray revealed a small fracture in her wrist.",
+    ko:"엑스레이는 그녀의 손목에 생긴 작은 (골절 · 균열)을 보여주었다.",
+    hint:"<b>break · frag</b>(부서지다)",
+    choices:['멍','골절 · 균열','염증','탈구'], answer:1 },
+  { w:'inflammation', en:"The doctor prescribed medicine to reduce the inflammation.",
+    ko:"의사는 (염증)을 줄이기 위한 약을 처방했다.",
+    hint:"in + <b>flam</b>(불) → 안쪽에서 불타다",
+    choices:['통증','염증','상처','피로'], answer:1 },
+  { w:'fraction', en:"Only a fraction of the population voted in the election.",
+    ko:"선거에 투표한 사람은 전체 인구의 오직 (일부)에 불과했다.",
+    hint:"<b>break · frag</b>(부서진 것) → 파편 · 조각",
+    choices:['절반','일부','전체','노인 (인구)'], answer:1 }
+];
+
+const LESSON3_PART02_POOL = [
+  {
+    w:"fraction",
+    sentence:"Only a [fraction] of the students passed the difficult exam.",
+    hint:"<b>frac</b>(라틴 frangere, 부수다)",
+    choices:[
+      "the whole amount of something",
+      "a sudden increase in number",
+      "a small part or portion of something",
+      "a detailed written report",
+      "a group acting against its leaders"
+    ],
+    answer:2,
+    ko_trans:"그 어려운 시험을 통과한 학생은 오직 일부에 불과했다.",
+    ko_etym:"frangere(부수다) → 전체에서 쪼개진 작은 일부 · 분수"
+  },
+  {
+    w:"fracture",
+    sentence:"The doctor confirmed a [fracture] in the patient's leg.",
+    hint:"<b>frac</b>(frangere, 부수다)",
+    choices:[
+      "a crack or break, especially in a bone",
+      "a painful swelling caused by infection",
+      "a deep cut in the skin",
+      "a loss of memory after an injury",
+      "a sharp pain in the muscles"
+    ],
+    answer:0,
+    ko_trans:"의사는 환자의 다리에 골절이 있음을 확인했다.",
+    ko_etym:"frangere(부수다) → 뼈가 부러짐 · 균열"
+  },
+  {
+    w:"fragment",
+    sentence:"She carefully picked up a [fragment] of the broken vase.",
+    hint:"<b>frag</b>(frangere, 부수다)",
+    choices:[
+      "a complete and unbroken object",
+      "a tool used for cutting glass",
+      "a mark left behind by something",
+      "a small piece broken off from something",
+      "a container for storing liquids"
+    ],
+    answer:3,
+    ko_trans:"그녀는 깨진 꽃병의 한 조각을 조심스럽게 주웠다.",
+    ko_etym:"frangere(부수다) → 부서져 나온 조각 · 파편"
+  },
+  {
+    w:"breach",
+    sentence:"The data leak was a serious [breach] of security.",
+    hint:"<b>br</b>(break, 깨다)",
+    choices:[
+      "a formal agreement between two sides",
+      "an act of breaking a rule, law, or agreement",
+      "a method of protecting information",
+      "a reward given for good conduct",
+      "a temporary pause in activity"
+    ],
+    answer:1,
+    ko_trans:"그 데이터 유출은 심각한 보안 위반이었다.",
+    ko_etym:"break(깨다) → 깨진 틈 → 규칙·약속을 깸 → 위반"
+  },
+  {
+    w:"breakthrough",
+    sentence:"The new treatment was a major [breakthrough] in medicine.",
+    hint:"<b>break</b>(깨다) + through(뚫고)",
+    choices:[
+      "a serious failure or setback",
+      "a long period without progress",
+      "a strict rule limiting research",
+      "a disagreement among experts",
+      "an important discovery or sudden advance"
+    ],
+    answer:4,
+    ko_trans:"그 새 치료법은 의학의 중대한 돌파구였다.",
+    ko_etym:"break(깨다) + through(뚫고) → 벽을 뚫는 큰 진전"
+  },
+  {
+    w:"breakout",
+    sentence:"There was a [breakout] of the flu in the crowded dormitory.",
+    hint:"<b>break</b>(깨다) + out(밖으로)",
+    choices:[
+      "a sudden start or spread of something",
+      "a gradual decrease in something",
+      "a successful cure for an illness",
+      "a plan made to prevent danger",
+      "a quiet period of recovery"
+    ],
+    answer:0,
+    ko_trans:"붐비는 그 기숙사에서 독감의 발생이 있었다.",
+    ko_etym:"break(깨다) + out(밖으로) → 갑자기 터져 나옴 → 발생 · 탈출"
+  },
+  {
+    w:"bear",
+    sentence:"He could not [bear] the pain any longer.",
+    hint:"<b>bear</b>(짊어지고 나르다)",
+    choices:[
+      "to enjoy something greatly",
+      "to forget something quickly",
+      "to endure or put up with something difficult",
+      "to cause something to happen",
+      "to escape from a situation"
+    ],
+    answer:2,
+    ko_trans:"그는 더 이상 그 고통을 견딜 수 없었다.",
+    ko_etym:"bear(짊어지다·나르다) → (무게·고통을) 견디다"
+  },
+  {
+    w:"suffer",
+    sentence:"Many patients [suffer] from chronic headaches.",
+    hint:"suf(아래) + <b>fer</b>(짊어지다)",
+    choices:[
+      "to recover from an illness fully",
+      "to experience pain, illness, or hardship",
+      "to avoid a difficult situation",
+      "to study a disease scientifically",
+      "to treat someone's wounds"
+    ],
+    answer:1,
+    ko_trans:"많은 환자가 만성 두통으로 고통받는다.",
+    ko_etym:"suf(아래) + fer(짊어지다) → 아래에서 견디다 → 고통받다"
+  },
+  {
+    w:"transfer",
+    sentence:"She will [transfer] the files to the new computer.",
+    hint:"trans(이동) + <b>fer</b>(나르다)",
+    choices:[
+      "to delete something permanently",
+      "to copy something out by hand",
+      "to keep something in one place",
+      "to move something from one place to another",
+      "to repair a broken device"
+    ],
+    answer:3,
+    ko_trans:"그녀는 그 파일들을 새 컴퓨터로 옮길 것이다.",
+    ko_etym:"trans(이동) + fer(나르다) → 옮기다 · 이전하다"
+  },
+  {
+    w:"refer",
+    sentence:"For the exact figures, please [refer] to the table below.",
+    hint:"re(다시) + <b>fer</b>(가져가다)",
+    choices:[
+      "to direct attention to a source of information",
+      "to write a new document from scratch",
+      "to ignore important details",
+      "to memorize something fully",
+      "to argue against a statement"
+    ],
+    answer:0,
+    ko_trans:"정확한 수치는 아래 표를 참조하세요.",
+    ko_etym:"re(다시) + fer(가져오다) → 다시 가져와 보다 → 참조하다"
+  },
+  {
+    w:"fertile",
+    sentence:"The [fertile] soil produced an excellent harvest.",
+    hint:"<b>fer</b>(나르다·낳다)",
+    choices:[
+      "dry and unable to grow anything",
+      "frozen and covered with ice",
+      "rocky and hard to dig into",
+      "polluted and unsafe to use",
+      "able to produce many plants, young, or ideas"
+    ],
+    answer:4,
+    ko_trans:"그 비옥한 토양은 훌륭한 수확을 냈다.",
+    ko_etym:"fer(낳다·열매를 가져오다) → 비옥한 · 다산의 · 풍부한"
+  },
+  {
+    w:"infer",
+    sentence:"From the clues, the detective could [infer] the truth.",
+    hint:"in(안으로) + <b>fer</b>(나르다)",
+    choices:[
+      "to state something as a known fact",
+      "to deny that something is true",
+      "to reach a conclusion from evidence or reasoning",
+      "to ask someone a direct question",
+      "to guess randomly without thinking"
+    ],
+    answer:2,
+    ko_trans:"단서들로부터 그 탐정은 진실을 추론할 수 있었다.",
+    ko_etym:"in(안으로) + fer(나르다) → 속의 내용을 끌어내다 → 추론하다"
+  },
+  {
+    w:"vociferous",
+    sentence:"The [vociferous] crowd demanded an immediate answer.",
+    hint:"voci(소리) + <b>fer</b>(나르다)",
+    choices:[
+      "remaining completely silent",
+      "expressing opinions loudly and forcefully",
+      "agreeing without any complaint",
+      "moving slowly and quietly",
+      "hiding true feelings from others"
+    ],
+    answer:1,
+    ko_trans:"떠들썩한 그 군중은 즉각적인 답변을 요구했다.",
+    ko_etym:"voci(목소리) + fer(나르다) → 목소리를 강하게 내보내는 → 떠들썩한"
+  },
+  {
+    w:"inflammation",
+    sentence:"The cream helps reduce [inflammation] around the wound.",
+    hint:"in + <b>flam</b>(불)",
+    choices:[
+      "a sudden loss of all feeling",
+      "a thin scar left after healing",
+      "a feeling of extreme tiredness",
+      "redness, heat, and swelling in part of the body",
+      "a sharp pain deep in the joints"
+    ],
+    answer:3,
+    ko_trans:"그 크림은 상처 주변의 염증을 줄이는 데 도움이 된다.",
+    ko_etym:"in + flam(불) → 불붙듯 빨갛게 부어오름 → 염증"
+  },
+  {
+    w:"blank",
+    sentence:"Write your name in the [blank] at the top of the page.",
+    hint:"<b>*bʰle-</b>(빛나다→하얗다)",
+    choices:[
+      "an empty space to be filled in",
+      "a brightly colored mark",
+      "a heavy line under a word",
+      "a stack of finished papers",
+      "a list of correct answers"
+    ],
+    answer:0,
+    ko_trans:"페이지 맨 위의 빈칸에 당신의 이름을 쓰세요.",
+    ko_etym:"*bʰle-(빛나다→하얗다) → 아무것도 없는 흰 칸 → 빈칸"
+  },
+  {
+    w:"bleach",
+    sentence:"The sun will [bleach] the curtains over time.",
+    hint:"<b>*bʰle-</b>(불에 타→하얀 재)",
+    choices:[
+      "to make something darker in color",
+      "to make something wet and heavy",
+      "to tear something into pieces",
+      "to fold something up neatly",
+      "to make something white or pale"
+    ],
+    answer:4,
+    ko_trans:"햇빛이 시간이 지나면서 그 커튼을 하얗게 바래게 할 것이다.",
+    ko_etym:"*bʰle-(빛나다→하얗다) → 하얗게 만들다 → 표백하다"
+  },
+  {
+    w:"bleak",
+    sentence:"The survivors faced a [bleak] and uncertain future.",
+    hint:"<b>*bʰle-</b>(불에 타→잿빛)",
+    choices:[
+      "bright, cheerful, and full of hope",
+      "warm, calm, and comfortable",
+      "offering little hope; gloomy and depressing",
+      "busy, noisy, and crowded",
+      "rich, fertile, and productive"
+    ],
+    answer:2,
+    ko_trans:"생존자들은 암울하고 불확실한 미래에 직면했다.",
+    ko_etym:"*bʰle-(빛나다→타고 남은 잿빛) → 황량한 · 음울한"
+  },
+];
+
 const LESSONS = {
   1:{ meta:LESSON1_META, data:LESSON1_DATA, classify:LESSON1_CLSDATA,
     part01:LESSON1_PART01, part02_pool:LESSON1_PART02_POOL,
@@ -2566,7 +3003,7 @@ const LESSONS = {
   2:{ meta:LESSON2_META, data:LESSON2_DATA, classify:LESSON2_CLSDATA, part01:LESSON2_PART01,
     part02_pool:LESSON2_PART02_POOL, part03_pool:LESSON2_PART03_POOL,
     reading_passages:LESSON2_READING },
-  3:{ meta:LESSON3_META, data:LESSON3_DATA, classify:LESSON3_CLSDATA }
+  3:{ meta:LESSON3_META, data:LESSON3_DATA, classify:LESSON3_CLSDATA, part01:LESSON3_PART01, part02_pool:LESSON3_PART02_POOL }
 };
 const LESSON_COMING = [
   { no:4, pair:'T ↔ TH', meaning:'tres / three',  ko:'셋' },
@@ -2740,6 +3177,27 @@ function showCover(){
 
   // 뿌리 페이지형 커버 (LESSON 3 — 인트로 + 뿌리별 페이지 넘김)
   if(d.root_pages){
+    const ashSvg = (kind) => {
+      const P = {
+        black: {g:'#0d0c0b', a:'#272320', b:'#3d3732', c:'#564e46', e:'#6f655b'},
+        white: {g:'#c9bfa9', a:'#efe9dd', b:'#fdfbf6', c:'#e3dccb', e:'#d2c9b5'},
+        gray:  {g:'#56514a', a:'#7c766d', b:'#969089', c:'#6b655d', e:'#aaa49a'}
+      }[kind];
+      return `<svg class="rp-ash-svg" viewBox="0 0 48 44" aria-hidden="true">
+        <ellipse cx="24" cy="40.5" rx="20" ry="3" fill="${P.g}" opacity="0.5"/>
+        <path d="M4 41 Q9 24 16 28 Q21 15 27 26 Q34 20 44 41 Z" fill="${P.a}"/>
+        <path d="M13 41 Q18 30 24 31 Q31 29 37 41 Z" fill="${P.b}" opacity="0.92"/>
+        <polygon points="18,30 22,27 25,32 20,34" fill="${P.c}"/>
+        <polygon points="27,28 32,26 33,31 28,33" fill="${P.e}"/>
+        <polygon points="22,34 27,33 28,38 22,39" fill="${P.e}"/>
+        <polygon points="9,38 13,35 16,40 10,41" fill="${P.c}"/>
+        <polygon points="33,35 38,34 40,40 34,40" fill="${P.c}"/>
+        <rect x="29.5" y="19.5" width="2.2" height="2.2" transform="rotate(22 30.6 20.6)" fill="${P.e}"/>
+        <rect x="18.5" y="21.5" width="1.8" height="1.8" transform="rotate(-16 19.4 22.4)" fill="${P.c}"/>
+        <circle cx="38" cy="24" r="1.1" fill="${P.b}"/>
+        <circle cx="13" cy="27" r="0.9" fill="${P.e}"/>
+      </svg>`;
+    };
     const wordCol = (col) => {
       const ws = col.words.map(w => `
         <div class="rp-w">
@@ -2778,6 +3236,18 @@ function showCover(){
             ${wordCol(p.b_side)}
             ${wordCol(p.f_side)}
           </div>
+          ${p.ash_box ? `
+          <div class="rp-ash">
+            <div class="rp-ash-title">${p.ash_box.title}</div>
+            ${p.ash_box.groups.map(g => `
+              <div class="rp-ash-row">
+                <span class="rp-ash-sw sw-${g.swatch}">${ashSvg(g.swatch)}</span>
+                <span class="rp-ash-body">
+                  <span class="rp-ash-color">${g.color} <em>${g.en}</em></span>
+                  <span class="rp-ash-words">${g.words}</span>
+                </span>
+              </div>`).join('')}
+          </div>` : ''}
         </div>
       </div>`;
     };
@@ -2787,6 +3257,7 @@ function showCover(){
         ${d.intro_question ? `<div class="cover-q-tag">QUESTION</div>
         <div class="cover-q">${d.intro_question}</div>
         ${d.intro_answer_sub ? `<div class="cover-q-sub">${d.intro_answer_sub}</div>` : ''}
+        ${d.intro_image ? `<figure class="cover-q-img"><img src="${d.intro_image}" alt="FRAGILE — handle with care" loading="lazy"></figure>` : ''}
         <div class="cover-q-rule"></div>` : ''}
         <div class="cover-pair"><span class="pf-p">${pf}</span><span class="pf-arrow">↔</span><span class="pf-f">${ff}</span></div>
         ${d.palatal_note ? `<div class="cover-note">${d.palatal_note}</div>` : ''}
@@ -2801,7 +3272,7 @@ function showCover(){
           <div class="cc-title">${c.title}</div>
           <div class="cc-body">${c.body}</div>
         </div>
-        ${L.classify ? `<button class="cover-cta" onclick="goClassify()">의미 분류 퀴즈 풀기 ›</button>` : ''}
+        ${(L.classify || L.data.bfp_table) ? `<button class="cover-cta" onclick="enterBody()">학습 시작 ›</button>` : ''}
       </div>` : '';
     const slides = [introSlide, ...d.root_pages.map(rootSlide), closingSlide].filter(Boolean);
     const dotsHtml = slides.map((_,i) => `<span class="dot${i===0?' active':''}" onclick="l3Go(${i})"></span>`).join('');
@@ -2964,6 +3435,41 @@ function enterBody(){
 /* ============================================================
  *  어원 트리 (3갈래)
  * ============================================================ */
+function showTreeBFP(t){
+  const rowsHtml = t.rows.map(r => `
+    <div class="bfp-row">
+      <div class="bfp-head">
+        <span class="bfp-root">${r.root}</span>
+        <span class="bfp-gloss">${r.gloss}</span>
+      </div>
+      ${r.pair ? `<div class="bfp-pair"><span class="pf-p">${r.pair.b}</span><span class="bfp-pair-arrow">↔</span><span class="pf-f">${r.pair.f}</span></div>` : ''}
+      <div class="bfp-cells">
+        <div class="bfp-cell bfp-b"><span class="bfp-lang">게르만 b</span><span class="bfp-words">${r.b}</span></div>
+        <div class="bfp-cell bfp-f"><span class="bfp-lang">라틴 f</span><span class="bfp-words">${r.f}</span></div>
+        <div class="bfp-cell bfp-ph"><span class="bfp-lang">그리스 ph</span><span class="bfp-words">${r.ph}</span></div>
+      </div>
+    </div>`).join('');
+  document.getElementById('treeBody').innerHTML = `
+    <div style="padding:20px 16px">
+      <div class="clf-head" style="margin-bottom:8px">
+        <span class="tag">VOCATREE</span>
+      </div>
+      <div class="t2-title">${t.title}</div>
+      <div class="t2-sub">: ${t.subtitle}</div>
+      <div class="cover-lead" style="margin:18px 0 0">${t.intro}</div>
+      <div class="bfp-legend">
+        <span class="bfp-leg bfp-b">게르만 <b>b</b></span>
+        <span class="bfp-leg bfp-f">라틴 <b>f</b></span>
+        <span class="bfp-leg bfp-ph">그리스 <b>ph</b></span>
+      </div>
+      <div class="bfp-list">${rowsHtml}</div>
+      <div class="cover-closing" style="margin:20px 0 0;background:var(--root)">
+        <div class="cc-tag">THIS LESSON</div>
+        <div class="cc-body" style="margin-top:8px">${t.closing}</div>
+      </div>
+      <button class="tree-cta" onclick="goClassify()">의미 분류 퀴즈로 ›</button>
+    </div>`;
+}
 function showTree2(t){
   const sideHtml = (s) => {
     const br = s.branch === 'c' ? 'br-c' : 'br-ch';
@@ -3013,6 +3519,7 @@ function showTree2(t){
 function showTree(){
   const L = LESSONS[currentLessonNo];
   const d = L.data;
+  if(d.bfp_table){ showTreeBFP(d.bfp_table); go('tree'); return; }
   if(d.tree2){ showTree2(d.tree2); go('tree'); return; }
   if(!d.word_tree){
     document.getElementById('treeBody').innerHTML =
@@ -3108,6 +3615,7 @@ function showTree(){
 let clfList = [];     // 정규화된 문항 배열
 let clfIdx = 0;
 let clfState = 'q';   // 'q' | 'shown'
+let clfPicked = 0;    // 사용자가 고른 번호
 function clfBuildItems(L){
   const C = L.classify;
   if(Array.isArray(C)){
@@ -3233,6 +3741,9 @@ function renderClassify(){
             : exKo}</span>
         </div>
         <div class="clf-choices">${choicesHtml}</div>
+        ${clfState==='shown'
+          ? `<div class="clf-verdict ${clfPicked===ans?'ok':'bad'}">${clfPicked===ans?'✓ 정답입니다!':'✕ 오답입니다'}</div>`
+          : ''}
         <div class="clf-hint${clfState==='shown'?' on':''}">
           <b>정답:</b> ${ans}번 · ${cats[ans-1].meaning}<br>
           <b>어원:</b> ${hint}
@@ -3261,6 +3772,7 @@ function speakSentence(text){
 function clfPick(n){
   if(clfState !== 'q') return;
   clfState = 'shown';
+  clfPicked = n;
   renderClassify();
   // 정답/오답 표시 (선택된 버튼)
   const ans = clfList[clfIdx].ans;
@@ -3299,7 +3811,7 @@ function quizMenu(){
       ? `<div class="part-status">최고 ${pct}%</div>`
       : `<div class="part-status">시작하기 ›</div>`;
   const L = LESSONS[currentLessonNo];
-  const p01Count = (L.part01 || []).length;
+  const p01Count = (L.data && L.data.part01_pick) ? L.data.part01_pick : (L.part01 || []).length;
   const p02Count = (L.part02_pool || []).length;
   const p03Count = (L.part03_pool || []).length;
   const lockedCard = (no,title,desc) => `
@@ -3528,17 +4040,30 @@ let p01Idx = 0;
 let p01Correct = 0;
 let p01State = 'q';   // 'q' | 'shown'
 let p01HintOpen = false;
+let p01Picked = -1;   // 사용자가 고른 보기 index
+let p01List = [];     // 실제 출제 문항 (셔플/부분 선택 반영)
 function startPart01(){
+  const L = LESSONS[currentLessonNo];
+  p01List = (L.part01 || []).slice();
+  const pick = L.data && L.data.part01_pick;
+  if(pick){
+    for(let i = p01List.length - 1; i > 0; i--){
+      const j = Math.floor(Math.random() * (i + 1));
+      [p01List[i], p01List[j]] = [p01List[j], p01List[i]];
+    }
+    p01List = p01List.slice(0, pick);
+  }
   p01Idx = 0;
   p01Correct = 0;
   p01State = 'q';
   p01HintOpen = false;
+  p01Picked = -1;
   renderPart01();
   go('part01');
 }
 function renderPart01(){
   const L = LESSONS[currentLessonNo];
-  const total = L.part01.length;
+  const total = p01List.length;
   if(p01Idx >= total){
     const pct = Math.round((p01Correct/total)*100);
     try{
@@ -3557,9 +4082,12 @@ function renderPart01(){
       </div>`;
     return;
   }
-  const q = L.part01[p01Idx];
+  const q = p01List[p01Idx];
   // 빈칸 표시: 한글에서 (...) 부분 강조
-  const koWithBlank = q.ko.replace(/\(([^)]+)\)/, '<span style="color:#aa9b80">(_____)</span>');
+  const koWithBlank = q.ko.replace(/\(([^)]+)\)/,
+    p01State === 'shown'
+      ? '<span class="p01-fill">$1</span>'
+      : '<span class="p01-blank">(_____)</span>');
   const wordHighlighted = q.en.replace(new RegExp(q.w, 'i'),
     m => `<u style="text-decoration:none;border-bottom:2px solid var(--gold);font-weight:700;color:var(--ink)">${m}</u>`);
   const choicesHtml = q.choices.map((c, i) => {
@@ -3593,6 +4121,9 @@ function renderPart01(){
         </div>
         <div class="clf-choices" style="margin-top:14px">${choicesHtml}</div>
         ${p01State==='shown'
+          ? `<div class="clf-verdict ${p01Picked===q.answer?'ok':'bad'}">${p01Picked===q.answer?'✓ 정답입니다!':'✕ 오답입니다!'}</div>`
+          : ''}
+        ${p01State==='shown'
           ? `<button class="clf-next" onclick="p01Next()">${p01Idx===total-1?'결과 보기 ›':'다음 ›'}</button>`
           : ''}
       </div>
@@ -3604,9 +4135,9 @@ function p01ToggleHint(){
 }
 function p01Pick(i){
   if(p01State !== 'q') return;
-  const L = LESSONS[currentLessonNo];
-  const q = L.part01[p01Idx];
+  const q = p01List[p01Idx];
   p01State = 'shown';
+  p01Picked = i;
   if(i === q.answer) p01Correct++;
   renderPart01();
   const btns = document.querySelectorAll('#part01Body .clf-choice');
@@ -3619,6 +4150,7 @@ function p01Next(){
   p01Idx++;
   p01State = 'q';
   p01HintOpen = false;
+  p01Picked = -1;
   renderPart01();
 }
 
@@ -3681,8 +4213,8 @@ function renderPart02(){
   // 예문에서 [단어] 부분을 밑줄 + 어근 강조로
   const highlightSentence = (s) => {
     return s.replace(/\[([^\]]+)\]/g, (m, inner) => {
-      // 어근(ple/pla/pli/pl) 강조
-      const stems = ['ple','pla','pli','pl'];
+      // 어근 강조 (강별 stem)
+      const stems = (LESSONS[currentLessonNo].data.cls_stems) || ['ple','pla','pli','pl'];
       let html = inner;
       for(const st of stems){
         const re = new RegExp(st, 'i');
@@ -3738,6 +4270,7 @@ function renderPart02(){
         </div>
         <div class="clf-choices" style="margin-top:14px">${choicesHtml}</div>
         ${p02State === 'shown' ? `
+          <div class="clf-verdict ${p02PickedIdx===q.answer?'ok':'bad'}">${p02PickedIdx===q.answer?'✓ 정답입니다!':'✕ 오답입니다!'}</div>
           <div class="p02-explain">
             <div class="p02-explain-row"><b>해석</b> · ${q.ko_trans}</div>
             <div class="p02-explain-row"><b>어원</b> · ${q.ko_etym}</div>
