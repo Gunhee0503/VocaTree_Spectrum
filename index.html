@@ -2466,6 +2466,8 @@ const LESSON3_DATA = {
   pair: { p: 'B', f: 'F', law: "Grimm's Law" },
   pair_ko: '게르만 b vs 라틴 f',
   part01_pick: 15,
+  reading_word_stems: ['refer','refers','referred','fragile','fragility'],
+  reading_root_stems: ['frag','fer'],
   cls_stems: ['break','frag','frac','fer','flam','blaz','ble','bl','br','fr','fl'],
   classify_cats: [
     { meaning:'깨다 · 부수다 · 조각내다', sub:'*bʰreg- · break / frag-', image:'images/lesson3/cls-break.jpg' },
@@ -2996,6 +2998,197 @@ const LESSON3_PART02_POOL = [
   },
 ];
 
+const LESSON3_PART03_POOL = [
+  {
+    answer:"fragile", first:"f",
+    sentence_en:"The ecosystem is f[BLANK] and needs protection.",
+    ko:"그 생태계는 [취약하므로] 보호가 필요하다.",
+    hint_html:"break / <span class='hint-reveal' data-reveal='frag'>[ ? ]</span> ‘깨지다’ + able/-ile ‘할 수 있는’",
+    accept:["fragile"]
+  },
+  {
+    answer:"fraction", first:"f",
+    sentence_en:"A f[BLANK] of a second can change the outcome of a race.",
+    ko:"[찰나]의 순간이 경기 결과를 바꿀 수 있다.",
+    hint_html:"break / <span class='hint-reveal' data-reveal='frag'>[ ? ]</span> ‘깨지다’ + ‘과정·행위’ 명사어미 -tion → 조각·파편",
+    accept:["fraction"]
+  },
+  {
+    answer:"fragment", first:"f",
+    sentence_en:"I only remember f[BLANK]s of the conversation.",
+    ko:"나는 그 대화의 [일부]만 기억난다.",
+    hint_html:"break / <span class='hint-reveal' data-reveal='frag'>[ ? ]</span> ‘깨지다’ + ‘상태·수단’ 명사어미 -ment → 조각·파편",
+    accept:["fragment"]
+  },
+  {
+    answer:"breach", first:"b",
+    sentence_en:"The company was fined for a b[BLANK] of contract.",
+    ko:"그 회사는 계약 [위반]으로 벌금을 부과받았다.",
+    hint_html:"<span class='hint-reveal' data-reveal='break'>[ ? ]</span> / frag ‘깨지다’",
+    accept:["breach"]
+  },
+  {
+    answer:"breakthrough", first:"b",
+    sentence_en:"Scientists announced a b[BLANK] in cancer treatment.",
+    ko:"과학자들은 암 치료의 [획기적인] 발전을 발표했다.",
+    hint_html:"<span class='hint-reveal' data-reveal='break'>[ ? ]</span> ‘깨다’ + through ‘~을 통해·돌파해서’",
+    accept:["breakthrough"]
+  },
+  {
+    answer:"breakout", first:"b",
+    sentence_en:"The company experienced a b[BLANK] year in sales.",
+    ko:"그 회사는 매출이 [폭발적으로 성장한] 해를 맞았다.",
+    hint_html:"<span class='hint-reveal' data-reveal='break'>[ ? ]</span> ‘깨고’ + out ‘나오다’",
+    accept:["breakout"]
+  },
+  {
+    answer:"bear", first:"b",
+    sentence_en:"The bridge can b[BLANK] heavy loads.",
+    ko:"그 다리는 무거운 하중을 [견딜 수] 있다.",
+    hint_html:"<span class='hint-reveal' data-reveal='bear'>[ ? ]</span> / fer ‘나르다·싣고 가져가다’",
+    accept:["bear"]
+  },
+  {
+    answer:"suffer", first:"s",
+    sentence_en:"Many people s[BLANK]ed during the war.",
+    ko:"많은 사람들이 전쟁 동안 [고통을 겪었다].",
+    hint_html:"sub ‘아래에서’ + bear / <span class='hint-reveal' data-reveal='fer'>[ ? ]</span> ‘나르다·싣고 가져가다’",
+    accept:["suffer"]
+  },
+  {
+    answer:"transfer", first:"t",
+    sentence_en:"She t[BLANK]red the money to another account.",
+    ko:"그녀는 돈을 다른 계좌로 [이체했다].",
+    hint_html:"trans ‘옮겨서’ + bear / <span class='hint-reveal' data-reveal='fer'>[ ? ]</span> ‘나르다·싣고 가져가다’",
+    accept:["transfer"]
+  },
+  {
+    answer:"transfer", first:"t",
+    sentence_en:"The student t[BLANK]red to a new school.",
+    ko:"그 학생은 새로운 학교로 [전학 갔다].",
+    hint_html:"trans ‘옮겨서’ + bear / <span class='hint-reveal' data-reveal='fer'>[ ? ]</span> ‘나르다·싣고 가져가다’",
+    accept:["transfer"]
+  },
+  {
+    answer:"refer", first:"r",
+    sentence_en:"The term r[BLANK]s to a specific type of energy.",
+    ko:"그 용어는 특정한 종류의 에너지를 [의미한다].",
+    hint_html:"re ‘다시’ + bear / <span class='hint-reveal' data-reveal='fer'>[ ? ]</span> ‘나르다·가져가다’ → 회부하다·참조시키다",
+    accept:["refer"]
+  },
+  {
+    answer:"fertile", first:"f",
+    sentence_en:"The valley has f[BLANK] soil.",
+    ko:"그 계곡은 [비옥한] 토양을 가지고 있다.",
+    hint_html:"bear / <span class='hint-reveal' data-reveal='fer'>[ ? ]</span> ‘(열매·생명을) 나르다·가져가다’ + -ile ‘할 수 있는’",
+    accept:["fertile"]
+  },
+  {
+    answer:"infer", first:"i",
+    sentence_en:"We can i[BLANK] his intentions from his actions.",
+    ko:"우리는 그의 행동으로 의도를 [추론할 수] 있다.",
+    hint_html:"in ‘안에서’ + bear / <span class='hint-reveal' data-reveal='fer'>[ ? ]</span> ‘나르다·가져가다’ → 안쪽으로 나르다",
+    accept:["infer"]
+  },
+  {
+    answer:"flame", first:"f",
+    sentence_en:"A bright f[BLANK] rose from the campfire.",
+    ko:"밝은 [불꽃]이 모닥불에서 솟아올랐다.",
+    hint_html:"blaze / <span class='hint-reveal' data-reveal='fla'>[ ? ]</span> ‘불꽃’",
+    accept:["flame"]
+  },
+  {
+    answer:"inflammation", first:"i",
+    sentence_en:"The medicine helps reduce i[BLANK].",
+    ko:"그 약은 [염증]을 줄이는 데 도움이 된다.",
+    hint_html:"in ‘안에서’ + ble / <span class='hint-reveal' data-reveal='fla'>[ ? ]</span> ‘타는 불꽃’",
+    accept:["inflammation"]
+  },
+  {
+    answer:"blank", first:"b",
+    sentence_en:"My mind went b[BLANK] during the interview.",
+    ko:"면접 중에 머리가 [하얘졌다].",
+    hint_html:"<span class='hint-reveal' data-reveal='blaze'>[ ? ]</span> ‘하얗게 타고 남은 재’",
+    accept:["blank"]
+  },
+  {
+    answer:"bleach", first:"b",
+    sentence_en:"The sun b[BLANK]ed the fabric over time.",
+    ko:"햇빛이 시간이 지나며 천의 색을 [바래게 했다].",
+    hint_html:"<span class='hint-reveal' data-reveal='blaze'>[ ? ]</span> ‘하얗게 타고 남은 재’",
+    accept:["bleach"]
+  },
+  {
+    answer:"bleak", first:"b",
+    sentence_en:"The future looked b[BLANK] after the company failed.",
+    ko:"회사가 실패한 후 미래는 [암울해] 보였다.",
+    hint_html:"<span class='hint-reveal' data-reveal='blaze'>[ ? ]</span> ‘잿빛·회색으로 타고 남은 재’",
+    accept:["bleak"]
+  },
+  {
+    answer:"refer", first:"r",
+    sentence_en:"This phenomenon is r[BLANK]red to as the butterfly effect.",
+    ko:"이 현상은 나비효과라고 [불린다].",
+    hint_html:"re ‘다시’ + bear / <span class='hint-reveal' data-reveal='fer'>[ ? ]</span> ‘나르다·가져가다’ → 다시 보내다·가리키다·지칭하다",
+    accept:["refer"]
+  },
+  {
+    answer:"refer", first:"r",
+    sentence_en:"When people r[BLANK] to success, they often think of money.",
+    ko:"사람들이 성공을 [언급]할 때, 종종 돈을 떠올린다.",
+    hint_html:"re ‘다시’ + bear / <span class='hint-reveal' data-reveal='fer'>[ ? ]</span> ‘나르다·가져가다’ → 다시 보내다·가리키다·지칭하다",
+    accept:["refer"]
+  },
+];
+
+const LESSON3_READING = {
+  easy: {
+    level_label:"Basic · 기본",
+    passage_en:"Psychologists often refer to self-confidence as something that can be fragile. When people receive criticism, they may feel hurt or upset. Even a simple negative comment can make someone feel bad about themselves. Because of this, people sometimes react emotionally instead of calmly. Understanding this can help us communicate more carefully with others.",
+    question_ko:"What is the main idea of the passage?",
+    choices:[
+      "People should avoid talking to others when they are upset.",
+      "Criticism can affect fragile self-confidence and influence people's reactions.",
+      "Negative comments are usually intended to help people improve.",
+      "Self-confidence becomes stronger when people receive criticism.",
+      "Psychologists believe emotions should never influence communication."
+    ],
+    answer:1,
+    ko_trans:"심리학자들은 자신감을 깨지기 쉬운(fragile) 것으로 자주 언급한다(refer). 사람들은 비판을 받으면 상처받거나 속상해할 수 있다. 단순한 부정적인 말 한마디조차 누군가가 자신에 대해 나쁘게 느끼게 만들 수 있다. 이 때문에 사람들은 때때로 차분하게 대응하는 대신 감정적으로 반응한다. 이를 이해하면 우리는 타인과 더 신중하게 소통하는 데 도움이 된다.",
+    ko_haesul:"지문은 <b>fragile</b>(깨지기 쉬운) 자신감이 비판에 영향을 받아 사람들의 반응을 좌우한다고 설명한다. 따라서 비판이 깨지기 쉬운 자신감에 영향을 주고 반응에 작용한다는 ②가 정답이다."
+  },
+  medium: {
+    level_label:"Intermediate · 중급",
+    passage_en:"Psychologists often refer to self-esteem as surprisingly fragile. Even mild criticism can make people question their abilities or worth. When this happens, some individuals become defensive or avoid situations that may lead to further criticism. As a result, a person's reaction is often influenced not only by the criticism itself but also by how they interpret it. Understanding the fragile nature of self-esteem can improve relationships and communication.",
+    question_ko:"What is the main idea of the passage?",
+    choices:[
+      "People often respond to criticism based on how they perceive it, due to the fragile nature of self-esteem.",
+      "Self-esteem develops only through positive experiences and encouragement.",
+      "Criticism has little effect on people who possess strong abilities.",
+      "Avoiding criticism is the most effective way to maintain healthy relationships.",
+      "Psychologists disagree about the importance of self-esteem in human behavior."
+    ],
+    answer:0,
+    ko_trans:"심리학자들은 자존감(self-esteem)을 의외로 깨지기 쉬운(fragile) 것으로 자주 언급한다. 가벼운 비판조차 사람들이 자신의 능력이나 가치를 의심하게 만들 수 있다. 이런 일이 일어나면 어떤 사람들은 방어적이 되거나, 더 큰 비판으로 이어질 수 있는 상황을 피한다. 그 결과, 사람의 반응은 비판 그 자체뿐 아니라 그것을 어떻게 해석하는지에 의해서도 자주 좌우된다. 자존감의 깨지기 쉬운 본질을 이해하면 관계와 소통을 개선할 수 있다.",
+    ko_haesul:"지문은 자존감이 <b>fragile</b>(깨지기 쉬운)하기 때문에, 사람들이 비판을 '어떻게 해석(perceive)하느냐'에 따라 반응한다고 설명한다. 따라서 ①이 정답이다."
+  },
+  hard: {
+    level_label:"Advanced · 고급",
+    passage_en:"Psychologists often refer to the human ego as surprisingly fragile. Even a small amount of criticism can threaten a person's self-image and trigger defensive behaviors. In one well-known experiment on fragile self-esteem, participants who received negative feedback became noticeably more aggressive. This shows how easily our sense of self can be damaged. When people feel their ego is under attack, they may deny reality or lash out at others. Understanding this fragility helps explain many interpersonal conflicts.",
+    question_ko:"What is the main idea of the passage?",
+    choices:[
+      "Defensive behavior is the primary cause of all interpersonal conflicts.",
+      "Negative feedback improves self-esteem by encouraging self-reflection.",
+      "The fragility of the human ego can lead to defensive and aggressive reactions.",
+      "Aggressive individuals are naturally more sensitive to criticism than others.",
+      "Psychologists have proven that self-esteem cannot be changed by experience."
+    ],
+    answer:2,
+    ko_trans:"심리학자들은 인간의 자아(ego)를 의외로 깨지기 쉬운(fragile) 것으로 자주 언급한다. 적은 양의 비판조차 한 사람의 자아상을 위협하고 방어적인 행동을 촉발할 수 있다. 깨지기 쉬운 자존감에 관한 한 유명한 실험에서, 부정적인 피드백을 받은 참가자들은 눈에 띄게 더 공격적으로 변했다. 이는 우리의 자아 감각이 얼마나 쉽게 손상될 수 있는지를 보여준다. 사람들은 자신의 자아가 공격받는다고 느끼면 현실을 부정하거나 타인에게 화풀이할 수 있다. 이 취약성(fragility)을 이해하면 많은 대인 갈등을 설명하는 데 도움이 된다.",
+    ko_haesul:"지문은 인간 자아의 <b>fragility</b>(취약성)가 방어적이고 공격적인 반응으로 이어질 수 있다고 설명한다. 따라서 ③이 정답이다."
+  }
+};
+
 const LESSONS = {
   1:{ meta:LESSON1_META, data:LESSON1_DATA, classify:LESSON1_CLSDATA,
     part01:LESSON1_PART01, part02_pool:LESSON1_PART02_POOL,
@@ -3003,7 +3196,7 @@ const LESSONS = {
   2:{ meta:LESSON2_META, data:LESSON2_DATA, classify:LESSON2_CLSDATA, part01:LESSON2_PART01,
     part02_pool:LESSON2_PART02_POOL, part03_pool:LESSON2_PART03_POOL,
     reading_passages:LESSON2_READING },
-  3:{ meta:LESSON3_META, data:LESSON3_DATA, classify:LESSON3_CLSDATA, part01:LESSON3_PART01, part02_pool:LESSON3_PART02_POOL }
+  3:{ meta:LESSON3_META, data:LESSON3_DATA, classify:LESSON3_CLSDATA, part01:LESSON3_PART01, part02_pool:LESSON3_PART02_POOL, part03_pool:LESSON3_PART03_POOL, reading_passages:LESSON3_READING }
 };
 const LESSON_COMING = [
   { no:4, pair:'T ↔ TH', meaning:'tres / three',  ko:'셋' },
@@ -3907,7 +4100,7 @@ function renderReadingQuiz(){
   // explicit/implicit/complement/complex 등 학습 단어들의 어근 ple/pli/pla/pl 매칭
   const highlightPassage = (text) => {
     // 학습 대상 단어들 (어간 베이스로 매칭, 변형형까지 포함)
-    const stems = [
+    const stems = (L.data.reading_word_stems) || [
       'explicit','implicit','implicitly','complement','complete','complex',
       'apply','imply','reply','multiply','duplicate','replicate',
       'plant','place','plain','plateau','plateaus','platform',
@@ -3924,7 +4117,7 @@ function renderReadingQuiz(){
         (s.endsWith('e') && lower.startsWith(s.slice(0,-1))));
       if(!matched) return word;
       // 어근(ple/pli/pla/pl) 부분만 강조
-      const rootStems = ['ple','pla','pli','pl'];
+      const rootStems = (L.data.reading_root_stems) || ['ple','pla','pli','pl'];
       for(const rs of rootStems){
         const re = new RegExp(rs, 'i');
         if(re.test(word)){
